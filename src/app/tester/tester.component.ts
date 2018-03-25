@@ -8,11 +8,16 @@ import { EmmLibCoreService, Setting, Codes } from '../core';
   styleUrls: ['./tester.component.css']
 })
 export class TesterComponent implements OnInit {
+  content: string = '<p>Hello <strong>World !</strong></p>';
 
   constructor(private core: EmmLibCoreService) { }
 
   Snackbar() {
     this.core.Display("Sample Snackbar", "Done");
+  }
+
+  SaveEditor() {
+    this.core.Display(this.content, "Done");
   }
 
   SaveSetting() {
