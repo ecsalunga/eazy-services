@@ -6,11 +6,13 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { EmmLibModule } from './core';
 import { AppComponent } from './app.component';
 import { TesterComponent } from './tester/tester.component';
+import { FoodListComponent } from './food/food-list/food-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TesterComponent
+    TesterComponent,
+    FoodListComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +20,7 @@ import { TesterComponent } from './tester/tester.component';
     CKEditorModule,
     EmmLibModule.forRoot()
   ],
-  entryComponents: [ TesterComponent ],
+  entryComponents: [ TesterComponent, FoodListComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
