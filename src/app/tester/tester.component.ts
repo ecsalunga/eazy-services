@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { EmmLibCoreService, Setting, Codes } from '../core';
+import { EmmLibCoreService, Setting, Codes, Article } from '../core';
 
 @Component({
   selector: 'app-tester',
@@ -23,7 +23,7 @@ export class TesterComponent implements OnInit {
   SaveSetting() {
     let setting = new Setting();
     setting.CurrencySymbol = "PHP";
-    setting.Name = "EAZY Services";
+    setting.Name = "EAZY Services " + this.core.Stamp.Timestamp;
     setting.Footer = "EAZY Services © 2018"
     this.core.DA.Setting.Save(setting);
   }

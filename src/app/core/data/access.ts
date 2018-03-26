@@ -7,14 +7,14 @@ import { DataItems } from './items';
 import { Setting, Article } from '../models';
 
 export class DataAccess {
-    public Setting: DataItem<Setting>;
+    public Setting: DataItem;
     public Articles: DataItems<Article>;
 
     constructor(private fireDB: AngularFireDatabase, private dl: DataLayer) {
-        this.Setting = new DataItem<Setting>(fireDB, "/setting");
-        this.Setting.Load(dl.Setting);
+        this.Setting = new DataItem(fireDB, dl, "Setting", "/setting");
+        this.Setting.Load();
 
-        this.Articles = new DataItems<Article>(fireDB, "/articles");
-        this.Articles.Load(dl.Articles);
+        this.Articles = new DataItems<Article>(fireDB, dl, "Articles", "/articles");
+        this.Articles.Load();
     }
 }

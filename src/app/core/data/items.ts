@@ -4,14 +4,17 @@ import { Item } from '../models';
 
 export class DataItems<T extends Item> {
     private _path: string;
-    private _items: Array<T>;
+    private _dl: any;
+    private _property: string;
 
-    constructor(private _fireDB: AngularFireDatabase, path: string) { 
+    constructor(private _fireDB: AngularFireDatabase, dl: any, property: string, path: string) { 
+        this._dl = dl;
+        this._property = property;
         this._path = path;
     }
 
-    public Load(items: Array<T>, orderBy: string = "stamp") {
-        items = new Array<T>();
+    public Load(orderBy: string = "stamp") {
+        let items = new Array<T>();
 
         this._fireDB.list(this._path, ref => {
             return ref.orderByChild(orderBy);
@@ -21,15 +24,18 @@ export class DataItems<T extends Item> {
                 info.key = snapshot.key;
                 items.push(info);
             });
-        });
 
-        this._items = items;
+            this._dl[this._property] = items;
+        });
     }
 
-    public Save(item: T) {
+    public Save(item: T, refresh: boolean = true) {
         if (item.key != null && item.key != "")
             this._fireDB.list(this._path).update(item.key, item);
         else
             this._fireDB.list(this._path).push(item);
+
+        if(refresh)
+            this.Load();
     }
 }
