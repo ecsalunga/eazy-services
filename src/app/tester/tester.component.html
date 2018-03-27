@@ -1,31 +1,24 @@
 <div>
-  <ckeditor [(ngModel)]="content" debounce="500">
+  <ckeditor [(ngModel)]="content" [config]="{extraPlugins: 'divarea'}" debounce="500">
     <p>Hello <strong>world</strong></p>
   </ckeditor>
-  <button (click)="SaveEditor()">Save</button>
+  <button mat-raised-button (click)="SaveEditor()">Save</button>
 </div>
-<div class="FeatureSeparator"></div>
 <div>
-  <button (click)="SaveSetting()">Save Setting</button>
+  <button mat-raised-button (click)="DelayCall()">Delay Call</button>
+  <button mat-raised-button (click)="SaveSetting()">Save Setting</button>
+  <button mat-raised-button (click)="Snackbar()">Snackbar</button>
+  <button mat-raised-button (click)="SelectImage()">Select Image</button>
 </div>
-<div class="FeatureSeparator"></div>
-<div>
-  <button (click)="Snackbar()">Snackbar</button>
+<div class="grid">
+  <mat-grid-list cols="3" rowHeight="100px">
+    <mat-grid-tile>1</mat-grid-tile>
+    <mat-grid-tile>2</mat-grid-tile>
+    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>4</mat-grid-tile>
+    <mat-grid-tile>5</mat-grid-tile>
+  </mat-grid-list>
 </div>
-<div class="FeatureSeparator"></div>
-<div>
-  <button (click)="SelectImage()">Select Image</button>
-</div>
-<div class="FeatureSeparator"></div>
-<div>
-  <button mat-raised-button>Basic</button>
-  <button mat-raised-button color="primary">Primary</button>
-  <button mat-raised-button color="accent">Accent</button>
-  <button mat-raised-button color="warn">Warn</button>
-  <button mat-raised-button disabled>Disabled</button>
-  <a mat-raised-button routerLink=".">Link</a>
-</div>
-<div class="FeatureSeparator"></div>
 <div>
   Done:
   <ul>

@@ -1,15 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-
-import { EmmLibCoreService, Setting, Codes, Article } from '../core';
+import { EmmLibCoreService, Setting, Codes, Article, DelayDecorator, MemoryDecorator } from '../core';
 
 @Component({
   selector: 'app-tester',
   templateUrl: './tester.component.html',
   styleUrls: ['./tester.component.css']
 })
+@MemoryDecorator()
 export class TesterComponent implements OnDestroy {
   content: string = '<p>Hello <strong>World !</strong></p>';
-
   constructor(private core: EmmLibCoreService) { }
 
   Snackbar() {
@@ -38,6 +37,15 @@ export class TesterComponent implements OnDestroy {
       else if(update.Type == Codes.FileUploaded)
         this.core.Display(update.Data.downloadURL);
     })
+  }
+
+  DelayCall() {
+    this.ShowInConsole("Emmanuel");
+  }
+
+  @DelayDecorator(5000)
+  ShowInConsole(msg: string) {
+    console.log(msg);
   }
 
   ngOnDestroy() {

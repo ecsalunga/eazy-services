@@ -1,3 +1,12 @@
 .FeatureSeparator {
     height: 25px;
 }
+
+.grid {
+    width: 50%;
+    background-color: teal;
+}
+
+button {
+    margin: 2px;
+}

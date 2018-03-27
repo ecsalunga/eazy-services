@@ -8,7 +8,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 import { DataSetting } from './data';
 import { EmmLibCoreService } from './emmlibcore.service';
 import { EmmLibOutletComponent } from './components/emmlib-outlet/emmlib-outlet.component';
@@ -24,7 +24,8 @@ import { EmmLibOutletComponent } from './components/emmlib-outlet/emmlib-outlet.
   exports: [
     EmmLibOutletComponent,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule
   ],
   declarations: [ EmmLibOutletComponent ]
 })

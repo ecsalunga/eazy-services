@@ -1,15 +1,19 @@
-export function MemoryDecorator(preserve: Array<string>): ClassDecorator {
+export function MemoryDecorator(): ClassDecorator {
     return function (terget: any) {
         let onDestroy = terget.prototype.ngOnDestroy;
 
         terget.prototype.ngOnDestroy = function() {
-            for (let prop in this) {
-                let property = this[prop];
-                if (!preserve.includes(prop) && (property && typeof property.unsubscribe === "function"))
+            for (let p in this) {
+                let property = this[p];
+                
+                // Observable
+                if (property != null && typeof property.unsubscribe === "function")
                     property.unsubscribe();
+                    
             }
 
-            onDestroy && typeof onDestroy === 'function' && onDestroy.apply(this, arguments);
+            if(onDestroy != null && typeof onDestroy === 'function')
+                onDestroy.apply(this, arguments);
         }
     };
 }
