@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { EmmLibCoreService, Setting, Codes } from '../core';
+import { EmmLibCoreService, Setting, Codes, Article } from '../core';
 
 @Component({
   selector: 'app-tester',
   templateUrl: './tester.component.html',
   styleUrls: ['./tester.component.css']
 })
-export class TesterComponent implements OnInit {
+export class TesterComponent implements OnDestroy {
   content: string = '<p>Hello <strong>World !</strong></p>';
 
   constructor(private core: EmmLibCoreService) { }
@@ -24,7 +24,7 @@ export class TesterComponent implements OnInit {
     let setting = new Setting();
     setting.CurrencySymbol = "PHP";
     setting.Name = "EAZY Services";
-    setting.Footer = "EAZY Services © 2018"
+    setting.Footer = "EAZY Services © 2018";
     this.core.DA.Setting.Save(setting);
   }
 
@@ -40,7 +40,8 @@ export class TesterComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
+  ngOnDestroy() {
+    
   }
 
 }

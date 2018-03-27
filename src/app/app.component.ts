@@ -10,7 +10,8 @@ export class AppComponent {
   
   constructor(private core: EmmLibCoreService) { }
 
-  LoadTester() {
-    this.core.Load("app-tester");
+  Load(selector: string) {
+    this.core.Load(selector);
   }
+
 }
