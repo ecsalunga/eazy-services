@@ -11,12 +11,8 @@ export class TesterComponent implements OnDestroy {
   content: string = '<p>Hello <strong>World !</strong></p>';
   constructor(private core: EmmLibCoreService) { }
 
-  Snackbar() {
-    this.core.Display("Sample Snackbar", "Done");
-  }
-
   SaveEditor() {
-    this.core.Display(this.content, "Done");
+    this.core.Display(this.content);
   }
 
   SaveSetting() {
@@ -40,12 +36,12 @@ export class TesterComponent implements OnDestroy {
   }
 
   DelayCall() {
-    this.ShowInConsole("Emmanuel");
+    this.DelayTrigger("Emmanuel");
   }
 
-  @DelayDecorator(5000)
-  ShowInConsole(msg: string) {
-    console.log(msg);
+  @DelayDecorator(3000)
+  DelayTrigger(msg: string) {
+    this.core.Display("Delay Trigger: " + msg);
   }
 
   ngOnDestroy() {
