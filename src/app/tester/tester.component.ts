@@ -1,5 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EmmLibCoreService, Setting, Codes, Article, DelayDecorator, MemoryDecorator } from '../core';
+import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+
+import { EmmLibCoreService, Setting, Codes, DelayDecorator, MemoryDecorator } from '../core';
+import { ArticleItem } from '../core/models/article';
 
 @Component({
   selector: 'app-tester',
@@ -7,9 +10,13 @@ import { EmmLibCoreService, Setting, Codes, Article, DelayDecorator, MemoryDecor
   styleUrls: ['./tester.component.css']
 })
 @MemoryDecorator()
-export class TesterComponent implements OnDestroy {
+export class TesterComponent {
   content: string = '<p>Hello <strong>World !</strong></p>';
-  constructor(private core: EmmLibCoreService) { }
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  constructor(private core: EmmLibCoreService) { 
+    this.core.DL.State.Title = "Tester Page";
+  }
 
   SaveEditor() {
     this.core.Display(this.content);
@@ -44,8 +51,9 @@ export class TesterComponent implements OnDestroy {
     this.core.Display("Delay Trigger: " + msg);
   }
 
-  ngOnDestroy() {
-    
+  getEmailError() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+      this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
 }

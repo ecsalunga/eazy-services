@@ -4,14 +4,13 @@ import { DataLayer } from './layer';
 import { DataItem } from './item';
 import { DataItems } from './items';
 
-import {
-    Setting, Article,
-    FoodItem, FoodSource, FoodType
-} from '../models';
+import { Setting } from '../models';
+import { ArticleItem } from '../models/article';
+import { FoodItem, FoodType, FoodSource } from '../models/food';
 
 export class DataAccess {
     public Setting: DataItem;
-    public Articles: DataItems<Article>;
+    public Articles: DataItems<ArticleItem>;
     public FoodItems: DataItems<FoodItem>;
     public FoodSources: DataItems<FoodSource>;
     public FoodTypes: DataItems<FoodType>;
@@ -27,7 +26,7 @@ export class DataAccess {
         this.FoodTypes = new DataItems<FoodType>(fireDB, dl, "FoodTypes", "/food/types");
         this.FoodTypes.Load();
 
-        this.Articles = new DataItems<Article>(fireDB, dl, "Articles", "/articles");
+        this.Articles = new DataItems<ArticleItem>(fireDB, dl, "ArticleItems", "/article/items");
         this.Articles.Load();
     }
 }

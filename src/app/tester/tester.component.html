@@ -9,6 +9,20 @@
   <button mat-raised-button (click)="SaveSetting()">Save Setting</button>
   <button mat-raised-button (click)="SelectImage()">Select Image</button>
 </div>
+<div class="vSmallSpacer"></div>
+<div class="form">
+  <mat-form-field>
+    <input matInput placeholder="Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{ getEmailError() }}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Comment"></textarea>
+  </mat-form-field>
+</div>
+<div class="vSmallSpacer"></div>
 <div class="grid">
   <mat-grid-list cols="3" rowHeight="100px">
     <mat-grid-tile>1</mat-grid-tile>

@@ -14,4 +14,8 @@ export class AppComponent {
     this.core.Load(selector);
   }
 
+  public get Title(): string {
+    return this.core.DL.State.Title;
+  }
+
 }

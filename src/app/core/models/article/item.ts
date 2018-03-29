@@ -1,6 +1,6 @@
-import { Item } from './item';
+import { Item } from '../item';
 
-export class Article extends Item {
+export class ArticleItem extends Item {
     Title: string;
     Blurb: string;
     Content: string;
