@@ -6,4 +6,9 @@ export class FoodSource extends Item {
     Blurb: string;
     ImageUrl: string;
     Rating: number;
+    
+    constructor(imageUrl: string) {
+        super();
+        this.ImageUrl = imageUrl;
+    }
 }

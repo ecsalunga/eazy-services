@@ -15,14 +15,11 @@ export class AppComponent {
   }
 
   LoadFoodSource() {
-    let foodSource = new FoodSource();
-    foodSource.Name = "testing";
-    this.core.DL.State.FoodSource = foodSource;
+    this.core.DL.State.FoodSource = new FoodSource(this.core.DL.State.DefaultImage);
     this.core.Load("food-admin-source");
   }
 
   public get Title(): string {
     return this.core.DL.State.Title;
   }
-
 }

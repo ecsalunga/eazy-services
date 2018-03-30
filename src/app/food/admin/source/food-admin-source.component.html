@@ -8,9 +8,12 @@
     <mat-error *ngIf="AddressFC.invalid">{{ GetRequiredError(AddressFC) }}</mat-error>
   </mat-form-field>
   <mat-form-field>
-    <textarea matInput placeholder="Comment"></textarea>
+    <textarea matInput placeholder="Blurb" [(ngModel)]="Model.Blurb" ></textarea>
   </mat-form-field>
+  <div>
+    <image-uploader [Token]="Token"></image-uploader>
+  </div>
 </div>
-<div>
+<div class="control">
   <button mat-raised-button color="primary" (click)="Save()">Save</button>
 </div>

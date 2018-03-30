@@ -15,6 +15,7 @@ import {
 import { DataSetting } from './data';
 import { EmmLibCoreService } from './emmlibcore.service';
 import { EmmLibOutletComponent } from './components/emmlib-outlet/emmlib-outlet.component';
+import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 
 @NgModule({
   imports: [
@@ -25,11 +26,11 @@ import { EmmLibOutletComponent } from './components/emmlib-outlet/emmlib-outlet.
     MatSnackBarModule
   ],
   exports: [
-    EmmLibOutletComponent, BrowserModule,
+    EmmLibOutletComponent, ImageUploaderComponent, BrowserModule,
     BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     MatButtonModule, MatGridListModule, MatFormFieldModule, MatInputModule
   ],
-  declarations: [ EmmLibOutletComponent ]
+  declarations: [ EmmLibOutletComponent, ImageUploaderComponent ]
 })
 export class EmmLibModule {
   static forRoot(): ModuleWithProviders {
