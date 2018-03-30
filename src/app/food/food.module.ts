@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 
 import { EmmLibModule } from '../core';
 
-import { FoodTypeComponent } from './food-type/food-type.component';
-import { FoodItemComponent } from './food-item/food-item.component';
-import { FoodSourceComponent } from './food-source/food-source.component';
+import { FoodTypeComponent } from './type/food-type.component';
+import { FoodItemComponent } from './item/food-item.component';
+import { FoodSourceComponent } from './source/food-source.component';
+import { FoodAdminSourceComponent } from './admin/admin-source/food-admin-source.component';
 
 @NgModule({
   declarations: [
     FoodTypeComponent,
     FoodItemComponent,
-    FoodSourceComponent
+    FoodSourceComponent,
+    FoodAdminSourceComponent
   ],
   imports: [
     EmmLibModule.forRoot()
@@ -18,7 +20,8 @@ import { FoodSourceComponent } from './food-source/food-source.component';
   entryComponents: [ 
     FoodTypeComponent,
     FoodItemComponent,
-    FoodSourceComponent
+    FoodSourceComponent,
+    FoodAdminSourceComponent
   ]
 })
 export class FoodModule { }
