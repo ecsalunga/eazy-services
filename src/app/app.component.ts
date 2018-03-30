@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmmLibCoreService  } from './core';
+import { EmmLibCoreService, FoodSource } from './core';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,13 @@ export class AppComponent {
 
   Load(selector: string) {
     this.core.Load(selector);
+  }
+
+  LoadFoodSource() {
+    let foodSource = new FoodSource();
+    foodSource.Name = "testing";
+    this.core.DL.State.FoodSource = foodSource;
+    this.core.Load("food-admin-source");
   }
 
   public get Title(): string {

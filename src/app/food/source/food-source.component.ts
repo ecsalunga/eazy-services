@@ -11,9 +11,7 @@ import { EmmLibCoreService  } from '../../core';
 export class FoodSourceComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(private core: EmmLibCoreService) {
-    this.core.DL.State.Title = "Food Source";
-  }
+  constructor(private core: EmmLibCoreService) { }
 
   getEmailError() {
     return this.email.hasError('required') ? 'You must enter a value' :
@@ -21,6 +19,7 @@ export class FoodSourceComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.core.DL.State.Title = "Food Source";
   }
 
 }

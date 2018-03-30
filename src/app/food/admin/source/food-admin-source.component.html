@@ -1,0 +1,16 @@
+<div class="form">
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="Model.Name" [formControl]="NameFC">
+    <mat-error *ngIf="NameFC.invalid">{{ GetRequiredError(NameFC) }}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Address" [(ngModel)]="Model.Address" [formControl]="AddressFC">
+    <mat-error *ngIf="AddressFC.invalid">{{ GetRequiredError(AddressFC) }}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Comment"></textarea>
+  </mat-form-field>
+</div>
+<div>
+  <button mat-raised-button color="primary" (click)="Save()">Save</button>
+</div>
