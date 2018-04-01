@@ -7,7 +7,7 @@ import * as firebase from 'firebase/app';
 import { MatSnackBar } from '@angular/material';
 
 import { LoadHelper, StampHelper, UtilityHelper } from './helpers';
-import { LoadRef, Codes, Update } from './models';
+import { LoadRef, Codes, Update, AccessMode, MemberItem } from './models';
 import { DataAccess, DataLayer } from './data';
 
 @Injectable()
@@ -30,6 +30,8 @@ export class EmmLibCoreService {
         this._dl = new DataLayer();
         this._da = new DataAccess(fireDB, this._dl);
         this.Changed = new Observable(obs => { this._updater = obs; });
+        
+        this.init();
     }
 
     public SetContainer(viewChild: ViewContainerRef) {
@@ -43,23 +45,23 @@ export class EmmLibCoreService {
     public Upload(path: string, file: File) {
         let fRef = this._fireStorage.child(path);
         fRef.put(file).then(snapshot => {
-            this.Publish(new Update(Codes.FileUploaded, snapshot))
+            this.Publish(new Update(Codes.FileUploaded, snapshot));
         });
     }
 
-    public Display(message: string, action: string = "Done", duration: number = 3000) {
+    public Display(message: string, action: string = "Done", duration: number = 5000) {
         this._snackBar.open(message, action, { duration: duration });
     }
 
     public Signup(email: string, password: string) {
         this._fireAuth.auth
-            .createUserWithEmailAndPassword(email, password)
-            .then(value => {
-                this.Display("Account Created!");
+        .createUserWithEmailAndPassword(email, password)
+        .then(value => {
+            this.Display("Account Created!");
         })
-            .catch(err => {
-                console.log(err);
-                this.Display("Create account failed.");
+        .catch(err => {
+            console.log(err);
+            this.Display("Create account failed.");
         });
     }
 
@@ -69,10 +71,10 @@ export class EmmLibCoreService {
 
     public LogIn(email: string, password: string) {
         this._fireAuth.auth
-            .signInWithEmailAndPassword(email, password)
-            .catch(err => {
-                console.log(err);
-                this.Display("Login failed.");
+        .signInWithEmailAndPassword(email, password)
+        .catch(err => {
+            console.log(err);
+            this.Display("Login failed.");
         });
     }
 
@@ -116,5 +118,59 @@ export class EmmLibCoreService {
 
     public get Stamp(): StampHelper {
         return this._stamp;
+    }
+
+    private init() {
+        this._dl.Loaded.subscribe(update => {
+            if(update.Code == "MemberItems" && !this.DL.State.IsMemberLoaded) {
+                this.DL.State.IsMemberLoaded = true;
+                this.mapFBUser();
+            }
+            else if(update.Code == "UserItems" && !this.DL.State.IsUserLoaded) {
+                this.DL.State.IsUserLoaded = true;
+                this.mapFBUser();
+            }
+
+            this.Publish(update);
+        });
+
+        this._fireAuth.authState.subscribe(user => {
+            this.DL.FBUser = user;
+            this.DL.State.IsFBUserLoaded = true;
+
+            this.mapFBUser();
+            this.Publish(new Update(Codes.UserChange, user));
+        });
+    }
+
+    private mapFBUser() {
+        if(this.DL.State.IsFBUserLoaded) {
+            if(this.DL.State.IsUserLoaded && this.DL.UserItems.some(m => m.UID == this.DL.FBUser.uid)) {
+                this.DL.Member = this.DL.UserItems.find(m => m.UID == this.DL.FBUser.uid);
+                this.DL.State.AccessMode = AccessMode.User;
+            }
+            else if(this.DL.State.IsMemberLoaded && this.DL.MemberItems.some(m => m.UID == this.DL.FBUser.uid)) {
+                this.DL.Member = this.DL.MemberItems.find(m => m.UID == this.DL.FBUser.uid);
+                this.DL.State.AccessMode = AccessMode.Member;
+                this.DL.Member.ActionDate = this._stamp.Timestamp;
+                this.DA.MemberItems.Save(this.DL.Member);
+            }
+        }
+
+        if(this.DL.State.IsFBUserLoaded 
+            && this.DL.State.IsMemberLoaded 
+            && this.DL.State.IsUserLoaded
+            && this.DL.State.AccessMode == AccessMode.Guest) 
+        {
+            let member = new MemberItem();
+            member.UID = this.DL.FBUser.uid;
+            member.Name = this.DL.FBUser.displayName;
+            member.Email = this.DL.FBUser.email;
+            member.ImageURL = this.DL.FBUser.photoURL;
+            member.Contact1 = this.DL.FBUser.phoneNumber;
+            member.JoinDate = this._stamp.Timestamp;
+            member.ActionDate = this._stamp.Timestamp;
+            this.DA.MemberItems.Save(member);
+        }
     }
 }

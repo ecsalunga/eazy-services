@@ -1,6 +1,6 @@
 import { AngularFireDatabase } from 'angularfire2/database';
 
-import { Item } from '../models';
+import { Update, Codes, Item } from '../models';
 
 export class DataItem {
     private _path: string;
@@ -15,8 +15,10 @@ export class DataItem {
 
     public Load() {
         this._fireDB.object(this._path).snapshotChanges().first().subscribe(snapshot => {
-            if (snapshot.payload.exists())
+            if (snapshot.payload.exists()) {
                 this._dl[this._property] = snapshot.payload.val();
+                this._dl.Publish(new Update(Codes.DataLoaded, this._property));
+            }
         });
     }
 

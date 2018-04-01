@@ -46,6 +46,10 @@ export class TesterComponent {
     this.DelayTrigger("Emmanuel");
   }
 
+  LogIn() {
+    this.core.LogInWithFacebook();
+  }
+
   @DelayDecorator(3000)
   DelayTrigger(msg: string) {
     this.core.Display("Delay Trigger: " + msg);

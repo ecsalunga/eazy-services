@@ -1,6 +1,6 @@
 import { AngularFireDatabase } from 'angularfire2/database';
 
-import { Item } from '../models';
+import { Item, Codes, Update } from '../models';
 
 export class DataItems<T extends Item> {
     private _path: string;
@@ -26,6 +26,7 @@ export class DataItems<T extends Item> {
             });
 
             this._dl[this._property] = items;
+            this._dl.Publish(new Update(Codes.DataLoaded, this._property));
         });
     }
 
