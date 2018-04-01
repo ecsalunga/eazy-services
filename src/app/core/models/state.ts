@@ -3,11 +3,14 @@ import { AccessMode } from './accessmode';
 
 export class State {
     Title: string;
+    DefaultImage: string;
+
     IsFBUserLoaded: boolean = false;
     IsMemberLoaded: boolean = false;
     IsUserLoaded: boolean = false;
     AccessMode: AccessMode;
-    DefaultImage: string;
+    SessionCode: number;
+    ControlCode: number = 0;
 
     private _foodSource: FoodSource;
 

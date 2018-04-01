@@ -1,7 +1,7 @@
 import { User } from '@firebase/auth-types';
 import { Observable, Subscription, Subscriber } from 'rxjs/Rx';
 
-import { Setting, Update, Codes, State, UserItem } from '../models';
+import { Setting, Update, Codes, State, UserItem, CommandItem } from '../models';
 import { MemberItem } from '../models/member';
 import { ArticleItem } from '../models/article';
 import { FoodItem, FoodType, FoodSource } from '../models/food';
@@ -42,4 +42,6 @@ export class DataLayer {
 
     UserSelected: UserItem;
     UserItems: Array<UserItem>;
+
+    CommandItems: Array<CommandItem>;
 }

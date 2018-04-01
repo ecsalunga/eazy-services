@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
-import { EmmLibCoreService, Setting, Codes, DelayDecorator, MemoryDecorator } from '../core';
+import { EmmLibCoreService, Setting, Codes, DelayDecorator, MemoryDecorator, CommandItem, CommandType } from '../core';
 import { ArticleItem } from '../core/models/article';
 
 @Component({
@@ -12,6 +12,7 @@ import { ArticleItem } from '../core/models/article';
 @MemoryDecorator()
 export class TesterComponent {
   content: string = '<p>Hello <strong>World !</strong></p>';
+  viewPage: string = "food-item";
   email = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(private core: EmmLibCoreService) { 
@@ -44,6 +45,24 @@ export class TesterComponent {
 
   DelayCall() {
     this.DelayTrigger("Emmanuel");
+  }
+
+  Control() {
+    let cmd = new CommandItem();
+    cmd.ControlCode = this.core.DL.State.SessionCode;
+    cmd.Type = CommandType.Control;
+    cmd.Data = this.core.DL.FBUser.uid;
+
+    this.core.Execute(cmd);
+  }
+
+  ViewCommand() {
+    let cmd = new CommandItem();
+    cmd.ControlCode = this.core.DL.State.SessionCode;
+    cmd.Type = CommandType.View;
+    cmd.Data = this.viewPage;
+
+    this.core.Execute(cmd);
   }
 
   LogIn() {

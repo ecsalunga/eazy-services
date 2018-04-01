@@ -7,13 +7,15 @@ import * as firebase from 'firebase/app';
 import { MatSnackBar } from '@angular/material';
 
 import { LoadHelper, StampHelper, UtilityHelper } from './helpers';
-import { LoadRef, Codes, Update, AccessMode, MemberItem } from './models';
-import { DataAccess, DataLayer } from './data';
+import { LoadRef, Codes, Update, AccessMode, MemberItem, CommandType, CommandItem } from './models';
+import { DelayDecorator } from './decorators';
+import { DataAccess, DataLayer, DataItems } from './data';
 
 @Injectable()
 export class EmmLibCoreService {
     public Changed: Observable<Update>;
-    
+
+    private _commandItems: DataItems<CommandItem>;
     private _updater: Subscriber<Update>;
     private _loader: LoadHelper;
     private _stamp: StampHelper;
@@ -31,6 +33,9 @@ export class EmmLibCoreService {
         this._da = new DataAccess(fireDB, this._dl);
         this.Changed = new Observable(obs => { this._updater = obs; });
         
+        this._commandItems = new DataItems<CommandItem>(fireDB, this._dl, "CommandItems", "/command/items", true);
+        this._commandItems.Load();
+
         this.init();
     }
 
@@ -91,6 +96,10 @@ export class EmmLibCoreService {
             this._updater.next(update);
     }
 
+    public Execute(cmd: CommandItem) {
+        this._commandItems.Save(cmd);
+    }
+
     public Load(selector: string): LoadRef;
     public Load(selectors: Array<string>): Array<LoadRef>;
     public Load(selector: string, viewChild: ViewContainerRef): LoadRef;
@@ -121,6 +130,8 @@ export class EmmLibCoreService {
     }
 
     private init() {
+        this.DL.State.SessionCode = this.Stamp.Timestamp;
+
         this._dl.Loaded.subscribe(update => {
             if(update.Code == "MemberItems" && !this.DL.State.IsMemberLoaded) {
                 this.DL.State.IsMemberLoaded = true;
@@ -129,6 +140,21 @@ export class EmmLibCoreService {
             else if(update.Code == "UserItems" && !this.DL.State.IsUserLoaded) {
                 this.DL.State.IsUserLoaded = true;
                 this.mapFBUser();
+            }
+
+            if(update.Code == "CommandItems") {
+                this.DL.CommandItems.forEach(cmd => {
+                    if(cmd.Type == CommandType.Control) {
+                        if(cmd.Data == this.DL.FBUser.uid && this.DL.State.SessionCode != cmd.ControlCode)
+                            this.DL.State.ControlCode = cmd.ControlCode;
+                    }
+                    else if(cmd.Type == CommandType.View && this.DL.State.ControlCode == cmd.ControlCode) {
+                        this.Load(cmd.Data);
+                    }
+
+                    if(this.DL.State.SessionCode == cmd.ControlCode)
+                        this.deleteCommand(cmd.key);
+                });
             }
 
             this.Publish(update);
@@ -144,23 +170,25 @@ export class EmmLibCoreService {
     }
 
     private mapFBUser() {
-        if(this.DL.State.IsFBUserLoaded) {
+        if(this.DL.State.AccessMode == AccessMode.Guest && this.DL.State.IsFBUserLoaded) {
             if(this.DL.State.IsUserLoaded && this.DL.UserItems.some(m => m.UID == this.DL.FBUser.uid)) {
-                this.DL.Member = this.DL.UserItems.find(m => m.UID == this.DL.FBUser.uid);
+                this.DL.User = this.DL.UserItems.find(m => m.UID == this.DL.FBUser.uid);
                 this.DL.State.AccessMode = AccessMode.User;
+                this.DL.User.ActionDate = this.Stamp.Timestamp;
+                this.DA.UserItems.Save(this.DL.User);
             }
             else if(this.DL.State.IsMemberLoaded && this.DL.MemberItems.some(m => m.UID == this.DL.FBUser.uid)) {
                 this.DL.Member = this.DL.MemberItems.find(m => m.UID == this.DL.FBUser.uid);
                 this.DL.State.AccessMode = AccessMode.Member;
-                this.DL.Member.ActionDate = this._stamp.Timestamp;
+                this.DL.Member.ActionDate = this.Stamp.Timestamp;
                 this.DA.MemberItems.Save(this.DL.Member);
             }
         }
 
-        if(this.DL.State.IsFBUserLoaded 
+        if(this.DL.State.AccessMode == AccessMode.Guest 
+            && this.DL.State.IsFBUserLoaded 
             && this.DL.State.IsMemberLoaded 
-            && this.DL.State.IsUserLoaded
-            && this.DL.State.AccessMode == AccessMode.Guest) 
+            && this.DL.State.IsUserLoaded) 
         {
             let member = new MemberItem();
             member.UID = this.DL.FBUser.uid;
@@ -168,9 +196,14 @@ export class EmmLibCoreService {
             member.Email = this.DL.FBUser.email;
             member.ImageURL = this.DL.FBUser.photoURL;
             member.Contact1 = this.DL.FBUser.phoneNumber;
-            member.JoinDate = this._stamp.Timestamp;
-            member.ActionDate = this._stamp.Timestamp;
+            member.JoinDate = this.Stamp.Timestamp;
+            member.ActionDate = this.Stamp.Timestamp;
             this.DA.MemberItems.Save(member);
         }
+    }
+
+    @DelayDecorator(5000)
+    private deleteCommand(key: string) {
+        this._commandItems.Delete(key, false);
     }
 }

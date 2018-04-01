@@ -11,6 +11,13 @@
   <button mat-raised-button (click)="SelectImage()">Select Image</button>
 </div>
 <div class="vSmallSpacer"></div>
+<div>
+    <button mat-raised-button (click)="Control()">Control</button>
+    <div class="vSmallSpacer"></div>
+    <input type="text" [(ngModel)]="viewPage" />
+    <button mat-raised-button (click)="ViewCommand()">Send View</button>
+</div>
+<div class="vSmallSpacer"></div>
 <div class="form">
   <mat-form-field>
     <input matInput placeholder="Name">

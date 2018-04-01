@@ -22,4 +22,15 @@ export class AppComponent {
   public get Title(): string {
     return this.core.DL.State.Title;
   }
+
+  public get Control(): string {
+    if(this.core.DL.State.ControlCode > 0)
+      return `( Control: ${this.core.DL.State.ControlCode} )`;
+    else
+      return "";
+  }
+
+  public get Session(): string {
+    return this.core.DL.State.SessionCode.toString();
+  }
 }

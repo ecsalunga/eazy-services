@@ -4,7 +4,7 @@ import { DataLayer } from './layer';
 import { DataItem } from './item';
 import { DataItems } from './items';
 
-import { Setting, UserItem } from '../models';
+import { Setting, UserItem, CommandItem } from '../models';
 import { MemberItem } from '../models/member';
 import { ArticleItem } from '../models/article';
 import { FoodItem, FoodType, FoodSource } from '../models/food';
