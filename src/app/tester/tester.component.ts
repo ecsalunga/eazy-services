@@ -51,6 +51,7 @@ export class TesterComponent {
     let cmd = new CommandItem();
     cmd.ControlCode = this.core.DL.State.SessionCode;
     cmd.Type = CommandType.Control;
+    cmd.UID = this.core.DL.FBUser.uid;
     cmd.Data = this.core.DL.FBUser.uid;
 
     this.core.Execute(cmd);
@@ -60,6 +61,7 @@ export class TesterComponent {
     let cmd = new CommandItem();
     cmd.ControlCode = this.core.DL.State.SessionCode;
     cmd.Type = CommandType.View;
+    cmd.UID = this.core.DL.FBUser.uid;
     cmd.Data = this.viewPage;
 
     this.core.Execute(cmd);
