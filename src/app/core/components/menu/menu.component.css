@@ -2,6 +2,13 @@
     cursor: pointer;
 }
 
+.item {
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    background-color: #2196f3;
+}
+
 .header {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -9,8 +16,7 @@
 }
 
 .content {
-    padding: 10px;
-    border-style: none;
+    padding: 20px;
 }
 
 img {

@@ -110,13 +110,6 @@ custom class
     padding: 10px;
 }
 
-.item {
-    border-radius: 5px;
-    box-shadow: 0 2px 5px #e8e8e8;
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
 .form input, .form textarea {
     font-size: 16px;
 }
