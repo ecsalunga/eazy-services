@@ -153,7 +153,7 @@ export class EmmLibCoreService {
                     }
 
                     if(this.DL.State.SessionCode == cmd.ControlCode)
-                        this.deleteCommand(cmd.key);
+                        this.deleteCommand(cmd.UID);
                 });
             }
 
@@ -203,7 +203,15 @@ export class EmmLibCoreService {
     }
 
     @DelayDecorator(5000)
-    private deleteCommand(key: string) {
-        this._commandItems.Delete(key, false);
+    private deleteCommand(uid: string) {
+        let keys = new Array<string>();
+        this.DL.CommandItems.forEach(cmd => {
+            if(cmd.UID == uid)
+                keys.push(cmd.key);
+        });
+        
+        keys.forEach(key => {
+            this._commandItems.Delete(key, false);
+        });
     }
 }

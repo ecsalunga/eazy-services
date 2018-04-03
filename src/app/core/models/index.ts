@@ -1,4 +1,5 @@
 export { Item } from './item';
+export { Message } from './message';
 export { Setting } from './setting';
 export { LoadRef } from './loadref';
 export { Update } from './update';
