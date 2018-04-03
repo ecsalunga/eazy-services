@@ -1,0 +1,25 @@
+.menu {
+    cursor: pointer;
+}
+
+.header {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #2196f3;
+}
+
+.content {
+    padding: 10px;
+    border-style: none;
+}
+
+img {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.title {
+    font-weight: bolder;
+    margin-bottom: 5px;
+}

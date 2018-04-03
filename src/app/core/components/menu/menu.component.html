@@ -1,0 +1,15 @@
+<mat-grid-list cols="3" gutterSize="10px" rowHeight="250px">
+  <ng-container *ngFor="let menu of core.DL.State.MenuItems">
+    <mat-grid-tile>
+      <div (click)="Process(menu)" class="item menu">
+        <div class="header">
+          <img [alt]="menu.Blurb" src="/assets/test.svg">
+        </div>
+        <div class="content">
+          <div class="title">{{ menu.Title }}</div>
+          <div>{{ menu.Blurb }}</div>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </ng-container>
+</mat-grid-list>

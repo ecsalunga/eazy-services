@@ -33,7 +33,7 @@ export class EmmLibCoreService {
         this._da = new DataAccess(fireDB, this._dl);
         this.Changed = new Observable(obs => { this._updater = obs; });
         
-        this._commandItems = new DataItems<CommandItem>(fireDB, this._dl, "CommandItems", "/command/items", true);
+        this._commandItems = new DataItems<CommandItem>(fireDB, this._dl, Codes.CommandItems, "/command/items", true);
         this._commandItems.Load();
 
         this.init();
@@ -133,16 +133,16 @@ export class EmmLibCoreService {
         this.DL.State.SessionCode = this.Stamp.Timestamp;
 
         this._dl.Loaded.subscribe(update => {
-            if(update.Code == "MemberItems" && !this.DL.State.IsMemberLoaded) {
+            if(update.Code == Codes.MemberItems && !this.DL.State.IsMemberLoaded) {
                 this.DL.State.IsMemberLoaded = true;
                 this.mapFBUser();
             }
-            else if(update.Code == "UserItems" && !this.DL.State.IsUserLoaded) {
+            else if(update.Code == Codes.UserItems && !this.DL.State.IsUserLoaded) {
                 this.DL.State.IsUserLoaded = true;
                 this.mapFBUser();
             }
 
-            if(update.Code == "CommandItems") {
+            if(update.Code == Codes.CommandItems) {
                 this.DL.CommandItems.forEach(cmd => {
                     if(cmd.Type == CommandType.Control) {
                         if(cmd.Data == this.DL.FBUser.uid && this.DL.State.SessionCode != cmd.ControlCode)

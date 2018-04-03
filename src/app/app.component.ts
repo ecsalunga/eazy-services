@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmmLibCoreService, FoodSource } from './core';
+import { EmmLibCoreService, FoodSource, Menus, Codes } from './core';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +10,11 @@ export class AppComponent {
   
   constructor(private core: EmmLibCoreService) { }
 
-  Load(selector: string) {
-    this.core.Load(selector);
-  }
-
-  LoadFoodSource() {
-    this.core.DL.State.FoodSource = new FoodSource(this.core.DL.State.DefaultImage);
-    this.core.Load("food-admin-source");
+  LoadMenu() {
+    this.core.DL.State.Title = Codes.Home;
+    this.core.DL.State.Menu = Menus[0].Name;
+    this.core.DL.State.MenuItems = Menus[0].Items;
+    this.core.Load("menu");
   }
 
   public get Title(): string {
@@ -28,9 +26,5 @@ export class AppComponent {
       return `( Control: ${this.core.DL.State.ControlCode} )`;
     else
       return "";
-  }
-
-  public get Session(): string {
-    return this.core.DL.State.SessionCode.toString();
   }
 }

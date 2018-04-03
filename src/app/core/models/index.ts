@@ -9,6 +9,9 @@ export { UploadToken } from './uploadtoken';
 export { AccessMode } from './accessmode';
 export { CommandItem } from './command';
 export { CommandType } from './commandtype';
+export { MenuType } from './menutype';
+export { Menus } from './menus';
+export { MenuItem } from './menuitem';
 
 export * from './article';
 export * from './food';

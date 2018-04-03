@@ -16,21 +16,21 @@ import { DataSetting } from './data';
 import { EmmLibCoreService } from './emmlibcore.service';
 import { EmmLibOutletComponent } from './components/emmlib-outlet/emmlib-outlet.component';
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    AngularFireModule.initializeApp(DataSetting.firebase),
-    AngularFireAuthModule,
-    AngularFireDatabaseModule,
-    MatSnackBarModule
+    AngularFireModule.initializeApp(DataSetting.firebase), AngularFireAuthModule, AngularFireDatabaseModule,
+    MatSnackBarModule, MatGridListModule
   ],
   exports: [
     EmmLibOutletComponent, ImageUploaderComponent, BrowserModule,
     BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     MatButtonModule, MatGridListModule, MatFormFieldModule, MatInputModule
   ],
-  declarations: [ EmmLibOutletComponent, ImageUploaderComponent ]
+  declarations: [ EmmLibOutletComponent, ImageUploaderComponent, MenuComponent ],
+  entryComponents: [ MenuComponent ]
 })
 export class EmmLibModule {
   static forRoot(): ModuleWithProviders {
