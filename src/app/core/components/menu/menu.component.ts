@@ -18,13 +18,9 @@ export class MenuComponent implements OnInit {
     if(menu.Type == MenuType.Module)
       this.core.Load(menu.Selector);
     else if(menu.Type == MenuType.Menu) {
-      Menus.forEach(item => {
-        if(item.Name == menu.Selector) {
-          this.core.DL.State.MenuItems = item.Items;
-          this.core.DL.State.Title = menu.Selector;
-          this.core.DL.State.Menu = menu.Selector;
-        }
-      });
+      this.core.DL.State.MenuItems = Menus[menu.Selector];
+      this.core.DL.State.Title = menu.Selector;
+      this.core.DL.State.Menu = menu.Selector;
     }
   }
 

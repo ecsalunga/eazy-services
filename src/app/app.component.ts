@@ -12,8 +12,8 @@ export class AppComponent {
 
   LoadMenu() {
     this.core.DL.State.Title = Codes.Home;
-    this.core.DL.State.Menu = Menus[0].Name;
-    this.core.DL.State.MenuItems = Menus[0].Items;
+    this.core.DL.State.Menu = Codes.Home
+    this.core.DL.State.MenuItems = Menus[Codes.Home];
     this.core.Load("menu");
   }
 

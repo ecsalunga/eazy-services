@@ -22,8 +22,8 @@ export class State {
 
     constructor() {
         this.Title = Codes.Home;
-        this.Menu = Menus[0].Name;
-        this.MenuItems = Menus[0].Items;
+        this.Menu = Codes.Home;
+        this.MenuItems = Menus[Codes.Home];
         this.AccessMode = AccessMode.Guest;
         this.DefaultImage = "https://firebasestorage.googleapis.com/v0/b/eazy-services.appspot.com/o/images%2Fdefault.jpeg?alt=media&token=1e305ead-3b19-432b-af58-e1aab42cad9e";
     }
