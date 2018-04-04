@@ -15,10 +15,6 @@
     background-color: #2196f3;
 }
 
-.content {
-    padding: 20px;
-}
-
 img {
     width: 100%;
     max-width: 400px;
@@ -28,4 +24,17 @@ img {
 .title {
     font-weight: bolder;
     margin-bottom: 5px;
+}
+
+.content {
+    padding: 10px;
+}
+
+.blurb {
+    display: none;
+}
+
+@media (min-width: 720px) {
+    .blurb { display: block; }
+    .content { padding: 20px; }
 }
