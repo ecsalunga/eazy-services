@@ -6,6 +6,7 @@ import { Menus } from './menus';
 
 export class State {
     Title: string;
+    LoaderState: string;
     DefaultImage: string;
 
     Menu: string;

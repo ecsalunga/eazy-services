@@ -9,12 +9,15 @@ import { Update, UploadToken, MenuItem, Codes, MenuType, Menus } from '../../mod
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  loader: string;
 
   constructor(public core: EmmLibCoreService) {
     this.core.DL.State.Title = this.core.DL.State.Menu;
   }
 
   Process(menu: MenuItem) {
+    this.core.ProcessLoad();
+
     if(menu.Type == MenuType.Module)
       this.core.Load(menu.Selector);
     else if(menu.Type == MenuType.Menu) {
@@ -25,6 +28,7 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
 }

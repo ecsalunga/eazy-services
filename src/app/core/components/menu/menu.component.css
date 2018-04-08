@@ -1,4 +1,16 @@
 img {
     width: 100%;
-    margin: auto;
+    height: 300px;
+}
+
+@media (min-width: 450px) {
+    img { height: 250px; }
+}
+
+@media (min-width: 720px) {
+    img { height: 200px; }
+}
+
+@media (min-width: 1200px) {
+    img { height: 150px; }
 }

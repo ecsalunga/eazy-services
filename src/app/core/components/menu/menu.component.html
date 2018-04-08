@@ -2,7 +2,7 @@
   <ng-container *ngFor="let menu of core.DL.State.MenuItems">
     <div (click)="Process(menu)" class="item-selection">
       <div class="header">
-        <img [alt]="menu.Blurb" src="/assets/test.svg">
+        <img [alt]="menu.Blurb" [src]="menu.ImgSrc">
       </div>
       <div class="contents">
         <div class="title">{{ menu.Title }}</div>

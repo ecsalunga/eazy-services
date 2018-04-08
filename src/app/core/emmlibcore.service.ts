@@ -113,6 +113,17 @@ export class EmmLibCoreService {
             return this._loader.LoadComponent(param);
     }
 
+    @DelayDecorator(1)
+    private showLoader() {
+        this._dl.State.LoaderState = "in";
+    }
+
+    public ProcessLoad() {
+        this._utility.ToTop();
+        this._dl.State.LoaderState = "out";
+        this.showLoader();
+    }
+
     public get DA(): DataAccess {
         return this._da;
     }
