@@ -27,21 +27,11 @@ export class DataLayer {
             this._updater.next(update);
     }
 
-    FoodItemSelected: FoodItem;
     FoodItems: Array<FoodItem>;
-    FoodSourceSelected: FoodSource;
     FoodSources: Array<FoodSource>;
-    FoodTypeSelected: FoodType;
     FoodTypes: Array<FoodType>;
-    
-    ArticleItemSelected: ArticleItem;
     ArticleItems: Array<ArticleItem>;
-
-    MemberSelected: MemberItem;
     MemberItems: Array<MemberItem>;
-
-    UserSelected: UserItem;
     UserItems: Array<UserItem>;
-
     CommandItems: Array<CommandItem>;
 }

@@ -12,11 +12,18 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
             Selector: "app-tester"
         },
         {
-            Title: "Food Module",
+            Title: "Food Services",
             ImgSrc: "/assets/food.png",
             Blurb: "Go to Food Module to access blah blah blah.",
             Type: MenuType.Menu,
             Selector: "Food"
+        },
+        {
+            Title: "Food Admin",
+            ImgSrc: "/assets/food.png",
+            Blurb: "Go to Food administration page blah blah blah.",
+            Type: MenuType.Menu,
+            Selector: "Food-Admin"
         },
         {
             Title: "Water Module",
@@ -50,7 +57,23 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
         },
         {
             Title: "Home",
-            ImgSrc: "/assets/configuration.png",
+            ImgSrc: "/assets/home.png",
+            Blurb: "Go to Main menu blah blah.",
+            Type: MenuType.Menu,
+            Selector: "Home"
+        }
+    ];
+    menus["Food-Admin"] = [
+        {
+            Title: "Food Sources",
+            ImgSrc: "/assets/food.png",
+            Blurb: "View list of food sources.",
+            Type: MenuType.Module,
+            Selector: "food-admin-source-list"
+        },
+        {
+            Title: "Home",
+            ImgSrc: "/assets/home.png",
             Blurb: "Go to Main menu blah blah.",
             Type: MenuType.Menu,
             Selector: "Home"
@@ -73,7 +96,7 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
         },
         {
             Title: "Home",
-            ImgSrc: "/assets/configuration.png",
+            ImgSrc: "/assets/home.png",
             Blurb: "Go to Main menu blah blah.",
             Type: MenuType.Menu,
             Selector: "Home"

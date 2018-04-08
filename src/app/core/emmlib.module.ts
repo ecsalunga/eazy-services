@@ -9,7 +9,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { 
-  MatButtonModule, MatSnackBarModule, MatGridListModule, MatFormFieldModule, MatInputModule 
+  MatButtonModule, MatSnackBarModule, MatGridListModule, MatFormFieldModule, MatInputModule,
+  MatIconModule, MatTooltipModule, MatProgressBarModule
 } from '@angular/material';
 
 import { DataSetting } from './data';
@@ -22,12 +23,14 @@ import { MenuComponent } from './components/menu/menu.component';
   imports: [
     CommonModule,
     AngularFireModule.initializeApp(DataSetting.firebase), AngularFireAuthModule, AngularFireDatabaseModule,
-    MatSnackBarModule, MatGridListModule
+    MatSnackBarModule, MatProgressBarModule
   ],
   exports: [
     EmmLibOutletComponent, ImageUploaderComponent, BrowserModule,
     BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
-    MatButtonModule, MatGridListModule, MatFormFieldModule, MatInputModule
+    MatButtonModule, MatGridListModule, MatFormFieldModule, 
+    MatInputModule, MatIconModule, MatTooltipModule,
+    MatGridListModule, MatProgressBarModule
   ],
   declarations: [ EmmLibOutletComponent, ImageUploaderComponent, MenuComponent ],
   entryComponents: [ MenuComponent ]

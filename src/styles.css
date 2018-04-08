@@ -14,6 +14,19 @@ body {
     overflow-x: hidden;
 }
 
+table {
+    width: 100%;
+}
+
+td, th {
+    padding: 3px;
+    text-align: left;
+}
+
+th {
+    vertical-align: text-top;
+}
+
 /*
 custom class
 */
@@ -159,6 +172,14 @@ custom class
 
 .vSmallSpacer {
     height: 15px;
+}
+
+.actions {
+    width: 30%;
+}
+
+.right {
+    text-align: right;
 }
 
 .container:after {

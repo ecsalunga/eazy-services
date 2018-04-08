@@ -22,7 +22,23 @@ export class FoodAdminSourceComponent implements OnInit {
   }
 
   public Save() {
-    console.log(this.Model);
+    if(this.Token.IsDirty)
+      this.Model.ImageUrl = this.Token.DownloadUrl;
+
+    this.core.DA.FoodSources.Save(this.Model);
+    this.transfer();
+  }
+
+  public IsOk() {
+    return (!this.NameFC.invalid && !this.AddressFC.invalid);
+  }
+
+  public Cancel() {
+    this.transfer();
+  }
+
+  private transfer() {
+    this.core.Load("food-admin-source-list");
   }
 
   public GetRequiredError(fr: FormControl) {

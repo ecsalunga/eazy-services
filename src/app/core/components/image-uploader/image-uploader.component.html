@@ -1,4 +1,7 @@
 <div class="image">
   <img class="img" src="{{ Token.DownloadUrl }}" (load)="Token.Procces(true)">
   <div class="edit" [hidden]="!Token.IsLoaded" (click)="SelectImage()">Update Picture</div>
+  <div [hidden]="Token.IsLoaded">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
 </div>

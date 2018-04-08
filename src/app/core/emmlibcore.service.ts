@@ -109,8 +109,10 @@ export class EmmLibCoreService {
             return this._loader.LoadComponents(param);
         else if(viewChild != null)
             return this._loader.LoadComponentToView(param, viewChild);
-        else
+        else {
+            this.ProcessLoad();
             return this._loader.LoadComponent(param);
+        }
     }
 
     @DelayDecorator(1)

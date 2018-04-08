@@ -1,7 +1,7 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
-import { EmmLibCoreService, FoodSource, Menus, Codes } from './core';
+import { EmmLibCoreService, FoodSource, Menus, Codes, DelayDecorator } from './core';
 
 @Component({
   selector: 'app-root',
@@ -19,13 +19,17 @@ import { EmmLibCoreService, FoodSource, Menus, Codes } from './core';
     ])
   ]
 })
-export class AppComponent implements AfterViewInit {
-  constructor(private core: EmmLibCoreService) { }
+export class AppComponent {
+  constructor(private core: EmmLibCoreService) {
+    this.init();
+  }
 
-  LoadMenu() {
-    this.core.ProcessLoad();
-    this.core.DL.State.Title = Codes.Home;
-    this.core.DL.State.Menu = Codes.Home
+  @DelayDecorator(100)
+  private init() {
+    this.Home();
+  }
+
+  public Home() {
     this.core.DL.State.MenuItems = Menus[Codes.Home];
     this.core.Load("emm-menu");
   }
@@ -43,9 +47,5 @@ export class AppComponent implements AfterViewInit {
       return `( Control: ${this.core.DL.State.ControlCode} )`;
     else
       return "";
-  }
-
-  ngAfterViewInit() {
-    this.LoadMenu();
   }
 }

@@ -15,5 +15,5 @@
   </div>
 </div>
 <div class="control">
-  <button mat-raised-button color="primary" (click)="Save()">Save</button>
+  <button mat-raised-button color="primary" (click)="Cancel()" matTooltip="Cancel">Cancel</button> <button mat-raised-button [disabled]="!IsOk()" color="primary" (click)="Save()">Save</button>
 </div>

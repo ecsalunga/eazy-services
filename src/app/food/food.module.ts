@@ -9,6 +9,7 @@ import { FoodAdminSourceComponent } from './admin/source/food-admin-source.compo
 import { FoodAdminItemComponent } from './admin/item/food-admin-item.component';
 import { FoodAdminTypeComponent } from './admin/type/food-admin-type.component';
 import { FoodAdminScheduleComponent } from './admin/schedule/food-admin-schedule.component';
+import { FoodAdminSourceListComponent } from './admin/source-list/food-admin-source-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FoodAdminScheduleComponent } from './admin/schedule/food-admin-schedule
     FoodAdminSourceComponent,
     FoodAdminItemComponent,
     FoodAdminTypeComponent,
-    FoodAdminScheduleComponent
+    FoodAdminScheduleComponent,
+    FoodAdminSourceListComponent
   ],
   imports: [
     EmmLibModule.forRoot()
@@ -28,6 +30,7 @@ import { FoodAdminScheduleComponent } from './admin/schedule/food-admin-schedule
     FoodItemComponent,
     FoodSourceComponent,
     FoodAdminSourceComponent,
+    FoodAdminSourceListComponent,
     FoodAdminItemComponent,
     FoodAdminTypeComponent,
     FoodAdminScheduleComponent

@@ -4,7 +4,7 @@ export class UploadToken {
     private _isDirty: boolean;
     private _downloadUrl: string
 
-    constructor(basePath: string, downloadUrl: string, isLoaded: boolean = false) {
+    constructor(basePath: string, downloadUrl: string, isLoaded: boolean = true) {
         this._basePath = basePath;
         this._downloadUrl = downloadUrl;
         this._isLoaded = isLoaded;

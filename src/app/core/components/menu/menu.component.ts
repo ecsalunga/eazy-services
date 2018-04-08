@@ -22,7 +22,7 @@ export class MenuComponent implements OnInit {
       this.core.Load(menu.Selector);
     else if(menu.Type == MenuType.Menu) {
       this.core.DL.State.MenuItems = Menus[ menu.Selector ];
-      this.core.DL.State.Title = menu.Selector;
+      this.core.DL.State.Title = menu.Title;
       this.core.DL.State.Menu = menu.Selector;
     }
   }
