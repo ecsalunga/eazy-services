@@ -1,15 +1,13 @@
-<mat-grid-list cols="3" gutterSize="10px" rowHeight="250px">
+<div class="container">
   <ng-container *ngFor="let menu of core.DL.State.MenuItems">
-    <mat-grid-tile>
-      <div (click)="Process(menu)" class="item menu">
-        <div class="header">
-          <img [alt]="menu.Blurb" src="/assets/test.svg">
-        </div>
-        <div class="content">
-          <div class="title">{{ menu.Title }}</div>
-          <div class="blurb">{{ menu.Blurb }}</div>
-        </div>
+    <div (click)="Process(menu)" class="item-selection">
+      <div class="header">
+        <img [alt]="menu.Blurb" src="/assets/test.svg">
       </div>
-    </mat-grid-tile>
+      <div class="contents">
+        <div class="title">{{ menu.Title }}</div>
+        <div class="blurb">{{ menu.Blurb }}</div>
+      </div>
+    </div>
   </ng-container>
-</mat-grid-list>
+</div>

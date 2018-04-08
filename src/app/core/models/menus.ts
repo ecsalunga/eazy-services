@@ -21,6 +21,12 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
             Blurb: "Go to Water Module to access blah blah blah.",
             Type: MenuType.Menu,
             Selector: "Water"
+        },
+        {
+            Title: "Settings",
+            Blurb: "Go to System settings blah blah blah.",
+            Type: MenuType.Module,
+            Selector: "app-tester"
         }
     ];
     menus["Food"] = [
