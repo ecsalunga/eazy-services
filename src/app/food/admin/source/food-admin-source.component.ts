@@ -11,6 +11,7 @@ import { EmmLibCoreService, UploadToken, FoodSource } from '../../../core';
 export class FoodAdminSourceComponent implements OnInit {
   NameFC = new FormControl('', [Validators.required]);
   AddressFC = new FormControl('', [Validators.required]);
+  ContactFC = new FormControl('', [Validators.required]);
 
   Model: FoodSource;
   Token: UploadToken;
@@ -30,7 +31,7 @@ export class FoodAdminSourceComponent implements OnInit {
   }
 
   public IsOk() {
-    return (!this.NameFC.invalid && !this.AddressFC.invalid);
+    return (!this.NameFC.invalid && !this.AddressFC.invalid && !this.ContactFC.invalid);
   }
 
   public Cancel() {

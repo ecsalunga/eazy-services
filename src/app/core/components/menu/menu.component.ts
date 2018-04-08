@@ -11,9 +11,7 @@ import { Update, UploadToken, MenuItem, Codes, MenuType, Menus } from '../../mod
 export class MenuComponent implements OnInit {
   loader: string;
 
-  constructor(public core: EmmLibCoreService) {
-    this.core.DL.State.Title = this.core.DL.State.Menu;
-  }
+  constructor(public core: EmmLibCoreService) { }
 
   Process(menu: MenuItem) {
     this.core.ProcessLoad();

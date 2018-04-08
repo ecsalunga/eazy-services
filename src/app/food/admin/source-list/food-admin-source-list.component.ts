@@ -7,10 +7,7 @@ import { EmmLibCoreService, UploadToken, FoodSource } from '../../../core';
   styleUrls: ['./food-admin-source-list.component.css']
 })
 export class FoodAdminSourceListComponent implements OnInit {
-  Items: Array<FoodSource>;
-
-  constructor(private core: EmmLibCoreService) {
-    this.Items = this.core.DL.FoodSources;
+  constructor(public core: EmmLibCoreService) {
     this.core.DL.State.Title = "Food Admin Source List";
   }
 

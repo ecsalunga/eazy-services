@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
-import { EmmLibCoreService, Setting, Codes, DelayDecorator, MemoryDecorator, CommandItem, CommandType } from '../core';
+import { EmmLibCoreService, Setting, Codes, DelayDecorator, CommandItem, CommandType } from '../core';
 import { ArticleItem } from '../core/models/article';
 
 @Component({
@@ -9,7 +9,6 @@ import { ArticleItem } from '../core/models/article';
   templateUrl: './tester.component.html',
   styleUrls: ['./tester.component.css']
 })
-@MemoryDecorator()
 export class TesterComponent {
   content: string = '<p>Hello <strong>World !</strong></p>';
   viewPage: string = "food-item";

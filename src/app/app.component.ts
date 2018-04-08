@@ -30,6 +30,7 @@ export class AppComponent {
   }
 
   public Home() {
+    this.core.DL.State.Title = Codes.Home;
     this.core.DL.State.MenuItems = Menus[Codes.Home];
     this.core.Load("emm-menu");
   }

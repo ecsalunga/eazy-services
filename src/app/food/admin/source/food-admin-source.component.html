@@ -8,6 +8,10 @@
     <mat-error *ngIf="AddressFC.invalid">{{ GetRequiredError(AddressFC) }}</mat-error>
   </mat-form-field>
   <mat-form-field>
+    <input matInput placeholder="Contact" [(ngModel)]="Model.Contact" [formControl]="ContactFC">
+    <mat-error *ngIf="ContactFC.invalid">{{ GetRequiredError(ContactFC) }}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
     <textarea matInput placeholder="Blurb" [(ngModel)]="Model.Blurb" ></textarea>
   </mat-form-field>
   <div>
