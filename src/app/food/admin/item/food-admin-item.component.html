@@ -1,3 +1,18 @@
-<p>
-  food-admin-item works!
-</p>
+<div class="form">
+  <mat-form-field>
+    <input matInput placeholder="Code" [(ngModel)]="Model.Code" [formControl]="CodeFC">
+    <mat-error *ngIf="CodeFC.invalid">{{ GetRequiredError(CodeFC) }}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Buy Price" [(ngModel)]="Model.PriceBuy" [formControl]="BuyFC">
+    <mat-error *ngIf="BuyFC.invalid">{{ GetRequiredError(BuyFC) }}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Sell Price" [(ngModel)]="Model.PriceSell" [formControl]="SellFC">
+    <mat-error *ngIf="SellFC.invalid">{{ GetRequiredError(SellFC) }}</mat-error>
+  </mat-form-field>
+</div>
+<div class="control">
+  <button mat-raised-button color="primary" (click)="Cancel()" matTooltip="Cancel">Cancel</button>
+  <button mat-raised-button [disabled]="!IsOk()" color="primary" (click)="Save()">Save</button>
+</div>

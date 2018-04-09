@@ -16,6 +16,13 @@ export class FoodAdminSourceListComponent implements OnInit {
     this.transfer();
   }
 
+  List(item: FoodSource) {
+    this.core.DL.State.BackSelector = "food-admin-source-list";
+    this.core.DL.State.FoodSource = item;
+    this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.SourceKey == item.key);
+    this.core.Load("food-admin-item-list");
+  }
+
   Add() {
     this.core.DL.State.FoodSource = new FoodSource(this.core.DL.State.DefaultImage);
     this.transfer();
@@ -26,5 +33,4 @@ export class FoodAdminSourceListComponent implements OnInit {
   }
 
   ngOnInit() { }
-
 }

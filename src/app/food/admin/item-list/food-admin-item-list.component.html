@@ -1,3 +1,46 @@
-<p>
-  food-admin-item-list works!
-</p>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Code
+        </th>
+        <th>
+          Type
+        </th>
+        <th>
+          Source
+        </th>
+        <th>
+          Price
+        </th>
+        <th class="actions right">
+          Action
+        </th>
+      </tr>
+    </thead>
+    <ng-container *ngFor="let item of core.DL.State.FoodItems">
+      <tr>
+        <td>
+          {{ item.Code }}
+        </td>
+        <td>
+          {{ item.TypeName }}
+        </td>
+        <td>
+          {{ item.SourceName }}
+        </td>
+        <td>
+          {{ item.PriceSell | number:'1.2-2'}}
+        </td>
+        <td class="right">
+          <button mat-mini-fab (click)="Select(item)" color="primary" matTooltip="View"><mat-icon>pageview</mat-icon></button>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+  <div class="vSmallSpacer"></div>
+  <div class="control">
+      <button mat-raised-button color="primary" (click)="Back()" matTooltip="Back">Back</button> <button mat-raised-button color="primary" (click)="Add()" matTooltip="Add">Add</button>
+  </div>
+</div>

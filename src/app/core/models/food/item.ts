@@ -6,6 +6,10 @@ export class FoodItem extends Item {
     PriceSell: number;
     
     TypeKey: string;
+    TypeName: string;
+
     SourceKey: string;
+    SourceName: string;
+    
     Rating: number;
 }

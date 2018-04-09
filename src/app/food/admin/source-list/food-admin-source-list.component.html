@@ -28,6 +28,7 @@
           {{ item.Contact }}
         </td>
         <td class="right">
+          <button mat-mini-fab (click)="List(item)" color="primary" matTooltip="Items"><mat-icon>list</mat-icon></button>
           <button mat-mini-fab (click)="Select(item)" color="primary" matTooltip="View"><mat-icon>pageview</mat-icon></button>
         </td>
       </tr>
