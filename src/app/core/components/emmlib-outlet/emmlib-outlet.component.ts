@@ -23,9 +23,7 @@ export class EmmLibOutletComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.core.SetContainer(this.viewChild);
-
     this._img = <HTMLInputElement>this.imageSelector.element.nativeElement;
-    this.core.SetImageSelector(this._img);
+    this.core.SetComponents(this.viewChild, this._img);
   }
 }

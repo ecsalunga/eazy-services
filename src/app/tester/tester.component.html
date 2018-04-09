@@ -6,29 +6,11 @@
 </div>
 <div>
   <button mat-raised-button (click)="LogIn()">Log-In</button>
-  <button mat-raised-button (click)="DelayCall()">Delay Call</button>
-  <button mat-raised-button (click)="SaveSetting()">Save Setting</button>
-  <button mat-raised-button (click)="SelectImage()">Select Image</button>
 </div>
 <div class="vSmallSpacer"></div>
 <div>
-    <button mat-raised-button (click)="Control()">Control</button>
-    <div class="vSmallSpacer"></div>
     <input type="text" [(ngModel)]="viewPage" />
     <button mat-raised-button (click)="ViewCommand()">Send View</button>
-</div>
-<div class="vSmallSpacer"></div>
-<div class="form">
-  <mat-form-field>
-    <input matInput placeholder="Name">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Email" [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{ getEmailError() }}</mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <textarea matInput placeholder="Comment"></textarea>
-  </mat-form-field>
 </div>
 <div class="vSmallSpacer"></div>
 <div class="grid">

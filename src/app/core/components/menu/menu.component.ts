@@ -14,7 +14,7 @@ export class MenuComponent implements OnInit {
   constructor(public core: EmmLibCoreService) { }
 
   Process(menu: MenuItem) {
-    this.core.ProcessLoad();
+    this.core.AnimateContent();
 
     if(menu.Type == MenuType.Module)
       this.core.Load(menu.Selector);
