@@ -46,7 +46,5 @@ export class FoodAdminSourceComponent implements OnInit {
     return fr.hasError('required') ? 'You must enter a value' : '';
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 }

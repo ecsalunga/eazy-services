@@ -5,4 +5,9 @@ export class FoodType extends Item {
     Category: string;
     ImageUrl: string;
     Blurb: string;
+
+    constructor(imageUrl: string) {
+        super();
+        this.ImageUrl = imageUrl;
+    }
 }

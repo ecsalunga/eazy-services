@@ -10,29 +10,22 @@ import { FoodAdminItemComponent } from './admin/item/food-admin-item.component';
 import { FoodAdminTypeComponent } from './admin/type/food-admin-type.component';
 import { FoodAdminScheduleComponent } from './admin/schedule/food-admin-schedule.component';
 import { FoodAdminSourceListComponent } from './admin/source-list/food-admin-source-list.component';
+import { FoodAdminTypeListComponent } from './admin/type-list/food-admin-type-list.component';
 
 @NgModule({
   declarations: [
-    FoodTypeComponent,
-    FoodItemComponent,
-    FoodSourceComponent,
-    FoodAdminSourceComponent,
-    FoodAdminItemComponent,
-    FoodAdminTypeComponent,
-    FoodAdminScheduleComponent,
-    FoodAdminSourceListComponent
+    FoodTypeComponent, FoodAdminTypeComponent, FoodAdminTypeListComponent,
+    FoodItemComponent, FoodAdminItemComponent,
+    FoodSourceComponent, FoodAdminSourceComponent, FoodAdminSourceListComponent,
+    FoodAdminScheduleComponent
   ],
   imports: [
     EmmLibModule.forRoot()
   ],
   entryComponents: [ 
-    FoodTypeComponent,
-    FoodItemComponent,
-    FoodSourceComponent,
-    FoodAdminSourceComponent,
-    FoodAdminSourceListComponent,
-    FoodAdminItemComponent,
-    FoodAdminTypeComponent,
+    FoodTypeComponent, FoodAdminTypeComponent, FoodAdminTypeListComponent,
+    FoodItemComponent, FoodAdminItemComponent,
+    FoodSourceComponent, FoodAdminSourceComponent, FoodAdminSourceListComponent,
     FoodAdminScheduleComponent
   ]
 })

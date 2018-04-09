@@ -1,4 +1,4 @@
-import { FoodSource } from './food';
+import { FoodSource, FoodType } from './food';
 import { AccessMode } from './accessmode';
 import { MenuItem } from './menuitem';
 import { Codes } from './codes';
@@ -20,13 +20,14 @@ export class State {
     ControlCode: number = 0;
 
     private _foodSource: FoodSource;
+    private _foodType: FoodType;
 
     constructor() {
         this.Title = Codes.Home;
         this.Menu = Codes.Home;
-        this.MenuItems = Menus[Codes.Home];
+        this.MenuItems = Menus[ Codes.Home ];
         this.AccessMode = AccessMode.Guest;
-        this.DefaultImage = "https://firebasestorage.googleapis.com/v0/b/eazy-services.appspot.com/o/images%2Fdefault.jpeg?alt=media&token=1e305ead-3b19-432b-af58-e1aab42cad9e";
+        this.DefaultImage = "/assets/default.jpeg";
     }
 
     public get FoodSource(): FoodSource {
@@ -35,5 +36,13 @@ export class State {
 
     public set FoodSource(value: FoodSource) {
         this._foodSource = value;
+    }
+
+    public get FoodType(): FoodType {
+        return Object.assign({}, this._foodType);
+    }
+
+    public set FoodType(value: FoodType) {
+        this._foodType = value;
     }
 }

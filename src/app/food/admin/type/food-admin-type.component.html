@@ -1,3 +1,19 @@
-<p>
-  food-admin-type works!
-</p>
+<div class="form">
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="Model.Name" [formControl]="NameFC">
+    <mat-error *ngIf="NameFC.invalid">{{ GetRequiredError(NameFC) }}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Category" [(ngModel)]="Model.Category" [formControl]="CategoryFC">
+    <mat-error *ngIf="CategoryFC.invalid">{{ GetRequiredError(CategoryFC) }}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Blurb" [(ngModel)]="Model.Blurb" ></textarea>
+  </mat-form-field>
+  <div>
+    <image-uploader [Token]="Token"></image-uploader>
+  </div>
+</div>
+<div class="control">
+  <button mat-raised-button color="primary" (click)="Cancel()" matTooltip="Cancel">Cancel</button> <button mat-raised-button [disabled]="!IsOk()" color="primary" (click)="Save()">Save</button>
+</div>
