@@ -15,19 +15,20 @@ export class FoodAdminItemComponent implements OnInit {
 
   Model: FoodItem;
 
-  constructor(private core: EmmLibCoreService) {
+  constructor(public core: EmmLibCoreService) {
     this.core.DL.State.Title = "Food Admin Item";
     this.Model = this.core.DL.State.FoodItem;
   }
 
   public Save() {
-    if(this.core.DL.State.BackSelector == Codes.FoodAdminTypeSelector) {
-      this.Model.TypeName = this.core.DL.State.FoodType.Name;
-      this.Model.TypeKey = this.core.DL.State.FoodType.key;
+    if(this.Model.SourceKey != null) {
+      let source = this.core.DL.FoodSources.find(item => item.key == this.Model.SourceKey);
+      this.Model.SourceName = source.Name;
     }
-    else {
-      this.Model.SourceName = this.core.DL.State.FoodSource.Name;
-      this.Model.SourceKey = this.core.DL.State.FoodSource.key;
+
+    if(this.Model.TypeKey != null) {
+      let type = this.core.DL.FoodTypes.find(item => item.key == this.Model.TypeKey);
+      this.Model.TypeName = type.Name;
     }
 
     this.core.DA.FoodItems.Save(this.Model);

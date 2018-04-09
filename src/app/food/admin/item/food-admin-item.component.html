@@ -11,6 +11,20 @@
     <input matInput placeholder="Sell Price" [(ngModel)]="Model.PriceSell" [formControl]="SellFC">
     <mat-error *ngIf="SellFC.invalid">{{ GetRequiredError(SellFC) }}</mat-error>
   </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Food Type" [(ngModel)]="Model.TypeKey">
+      <mat-option *ngFor="let type of core.DL.FoodTypes" [value]="type.key">
+        {{ type.Name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Food Source" [(ngModel)]="Model.SourceKey">
+      <mat-option *ngFor="let source of core.DL.FoodSources" [value]="source.key">
+        {{ source.Name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 <div class="control">
   <button mat-raised-button color="primary" (click)="Cancel()" matTooltip="Cancel">Cancel</button>

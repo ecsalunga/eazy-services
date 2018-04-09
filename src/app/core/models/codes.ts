@@ -1,5 +1,6 @@
 export const Codes = {
   Home: "Home",
+  MenuSelector: "emm-menu",
   ImageChange: "ImageChanged",
   FileUploaded: "FileUploaded",
   UserChange: "UserChange",

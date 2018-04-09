@@ -1,3 +1,17 @@
 .header-item {
     cursor: pointer;
 }
+
+.back-menu, .menu {
+    display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
+    float: left;
+    margin-right: 3px;
+}
+
+.menu {
+    float: left;
+    cursor: pointer;
+    color: #2196f3;
+}

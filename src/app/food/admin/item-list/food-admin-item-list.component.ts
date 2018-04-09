@@ -9,6 +9,7 @@ import { EmmLibCoreService, UploadToken, FoodItem, Codes, DelayDecorator } from 
 export class FoodAdminItemListComponent implements OnInit {
   constructor(public core: EmmLibCoreService) {
     this.core.DL.State.Title = "Food Admin Item List";
+    this.core.DL.State.FoodItems = new Array<FoodItem>();
   }
 
   Select(item: FoodItem) {
@@ -38,6 +39,6 @@ export class FoodAdminItemListComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.loadList(); 
+    this.loadList(); 
   }
 }

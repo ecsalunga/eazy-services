@@ -72,6 +72,9 @@ custom class
 }
 
 .title {
+    display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
     font-size: 15px;
     font-weight: bold;
 }

@@ -35,6 +35,14 @@ export class AppComponent {
     this.core.Load("emm-menu");
   }
 
+  public BackToMenu() {
+    this.core.Load("emm-menu");
+  }
+
+  public HasBackToMenu(): boolean {
+    return (this.core.DL.State.CurrentSelector != Codes.MenuSelector);
+  }
+
   public get Title(): string {
     return this.core.DL.State.Title;
   }

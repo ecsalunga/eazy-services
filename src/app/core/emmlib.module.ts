@@ -10,7 +10,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { 
   MatButtonModule, MatSnackBarModule, MatGridListModule, MatFormFieldModule, MatInputModule,
-  MatIconModule, MatTooltipModule, MatProgressBarModule
+  MatIconModule, MatTooltipModule, MatProgressBarModule, MatSelectModule
 } from '@angular/material';
 
 import { DataSetting } from './data';
@@ -30,7 +30,7 @@ import { MenuComponent } from './components/menu/menu.component';
     BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     MatButtonModule, MatGridListModule, MatFormFieldModule, 
     MatInputModule, MatIconModule, MatTooltipModule,
-    MatGridListModule, MatProgressBarModule
+    MatGridListModule, MatProgressBarModule, MatSelectModule
   ],
   declarations: [ EmmLibOutletComponent, ImageUploaderComponent, MenuComponent ],
   entryComponents: [ MenuComponent ]

@@ -9,6 +9,7 @@ export class State {
     LoaderState: string;
     DefaultImage: string;
     BackSelector: string;
+    CurrentSelector: string;
 
     Menu: string;
     MenuItems: Array<MenuItem>;

@@ -98,6 +98,7 @@ export class EmmLibCoreService {
         else if(viewChild != null)
             return this._loader.LoadComponentToView(param, viewChild);
         else {
+            this._dl.State.CurrentSelector = param;
             this.AnimateContent();
             return this._loader.LoadComponent(param);
         }
