@@ -11,6 +11,7 @@ export class Command {
 
     constructor(commandItems: DataItems<CommandItem>, dl: DataLayer, loader: LoadHelper, utility: UtilityHelper) {
         this._commandItems = commandItems;
+        this._dl = dl;
         this._loader = loader;
         this._utility = utility;
 

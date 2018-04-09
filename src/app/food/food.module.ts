@@ -11,11 +11,12 @@ import { FoodAdminTypeComponent } from './admin/type/food-admin-type.component';
 import { FoodAdminScheduleComponent } from './admin/schedule/food-admin-schedule.component';
 import { FoodAdminSourceListComponent } from './admin/source-list/food-admin-source-list.component';
 import { FoodAdminTypeListComponent } from './admin/type-list/food-admin-type-list.component';
+import { FoodAdminItemListComponent } from './admin/item-list/food-admin-item-list.component';
 
 @NgModule({
   declarations: [
     FoodTypeComponent, FoodAdminTypeComponent, FoodAdminTypeListComponent,
-    FoodItemComponent, FoodAdminItemComponent,
+    FoodItemComponent, FoodAdminItemComponent, FoodAdminItemListComponent,
     FoodSourceComponent, FoodAdminSourceComponent, FoodAdminSourceListComponent,
     FoodAdminScheduleComponent
   ],
@@ -24,7 +25,7 @@ import { FoodAdminTypeListComponent } from './admin/type-list/food-admin-type-li
   ],
   entryComponents: [ 
     FoodTypeComponent, FoodAdminTypeComponent, FoodAdminTypeListComponent,
-    FoodItemComponent, FoodAdminItemComponent,
+    FoodItemComponent, FoodAdminItemComponent, FoodAdminItemListComponent,
     FoodSourceComponent, FoodAdminSourceComponent, FoodAdminSourceListComponent,
     FoodAdminScheduleComponent
   ]

@@ -72,6 +72,13 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
             Selector: "food-admin-source-list"
         },
         {
+            Title: "Food Types",
+            ImgSrc: "/assets/food.png",
+            Blurb: "View list of food types.",
+            Type: MenuType.Module,
+            Selector: "food-admin-type-list"
+        },
+        {
             Title: "Home",
             ImgSrc: "/assets/home.png",
             Blurb: "Go to Main menu blah blah.",
