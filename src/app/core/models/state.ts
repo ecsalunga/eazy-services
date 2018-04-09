@@ -8,7 +8,7 @@ export class State {
     Title: string;
     LoaderState: string;
     DefaultImage: string;
-    BackSelector: string;
+    ReturnSelector: string;
     CurrentSelector: string;
 
     Menu: string;

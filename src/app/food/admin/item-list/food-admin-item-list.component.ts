@@ -22,8 +22,8 @@ export class FoodAdminItemListComponent implements OnInit {
     this.transfer();
   }
 
-  public Back() {
-    this.core.Load(this.core.DL.State.BackSelector);
+  Back() {
+    this.core.Load(this.core.DL.State.ReturnSelector);
   }
 
   private transfer() {
@@ -32,7 +32,7 @@ export class FoodAdminItemListComponent implements OnInit {
 
   @DelayDecorator(300)
   private loadList() {
-    if(this.core.DL.State.BackSelector == Codes.FoodAdminTypeSelector) 
+    if(this.core.DL.State.ReturnSelector == Codes.FoodAdminTypeSelector) 
       this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.TypeKey == this.core.DL.State.FoodType.key);
     else
       this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.SourceKey == this.core.DL.State.FoodSource.key); 

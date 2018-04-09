@@ -17,7 +17,7 @@ export class FoodAdminSourceListComponent implements OnInit {
   }
 
   List(item: FoodSource) {
-    this.core.DL.State.BackSelector = "food-admin-source-list";
+    this.core.DL.State.ReturnSelector = "food-admin-source-list";
     this.core.DL.State.FoodSource = item;
     this.core.Load("food-admin-item-list");
   }

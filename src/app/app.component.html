@@ -1,6 +1,6 @@
 <div class="navbar">
     <div class="left">
-        <div (click)="Home()" class="header-item">EAZY Services</div>
+        <div (click)="Home()" class="header-item" matTooltip="Back to Home">EAZY Services</div>
     </div>
 </div>
 
@@ -8,7 +8,7 @@
     <div class="vBigSpacer"></div>
     <div class="window">
         <div class="header">
-            <div class="title"><div class="back-menu" *ngIf="HasBackToMenu()"><div class="menu" (click)="BackToMenu()"><mat-icon>keyboard_arrow_left</mat-icon>Menu</div>\</div>{{ Title }} {{ Control }}</div>
+            <div class="title"><div class="back-menu" *ngIf="HasBackToMenu()"><div class="menu" (click)="BackToMenu()" matTooltip="Back to Menu"><mat-icon>keyboard_arrow_left</mat-icon>Menu</div>\</div>{{ Title }} {{ Control }}</div>
         </div>
         <div class="content" [@loaderState]="LoaderState">
             <emmlib-outlet></emmlib-outlet>
