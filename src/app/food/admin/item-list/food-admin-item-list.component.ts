@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmmLibCoreService, UploadToken, FoodItem } from '../../../core';
+import { EmmLibCoreService, UploadToken, FoodItem, Codes, DelayDecorator } from '../../../core';
 
 @Component({
   selector: 'food-admin-item-list',
@@ -29,5 +29,15 @@ export class FoodAdminItemListComponent implements OnInit {
     this.core.Load("food-admin-item");
   }
 
-  ngOnInit() { }
+  @DelayDecorator(300)
+  private loadList() {
+    if(this.core.DL.State.BackSelector == Codes.FoodAdminTypeSelector) 
+      this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.TypeKey == this.core.DL.State.FoodType.key);
+    else
+      this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.SourceKey == this.core.DL.State.FoodSource.key); 
+  }
+
+  ngOnInit() {
+      this.loadList(); 
+  }
 }
