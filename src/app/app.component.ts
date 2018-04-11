@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
-import { EmmLibCoreService, FoodSource, Menus, Codes, DelayDecorator } from './core';
+import { EmmLibCoreService, FoodSource, Menus, Codes, DelayCall } from './core';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +24,7 @@ export class AppComponent {
     this.init();
   }
 
-  @DelayDecorator(100)
+  @DelayCall(100)
   private init() {
     this.Home();
   }

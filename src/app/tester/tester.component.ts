@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
-import { EmmLibCoreService, Setting, Codes, DelayDecorator, CommandItem, CommandType } from '../core';
+import { EmmLibCoreService, Setting, Codes, DelayCall, CommandItem, CommandType } from '../core';
 import { ArticleItem } from '../core/models/article';
 
 @Component({
@@ -36,7 +36,7 @@ export class TesterComponent {
     this.core.LogInWithFacebook();
   }
 
-  @DelayDecorator(3000)
+  @DelayCall(3000)
   DelayTrigger(msg: string) {
     this.core.Display("Delay Trigger: " + msg);
   }

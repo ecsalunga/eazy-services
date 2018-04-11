@@ -1,7 +1,7 @@
 import { Codes, CommandType, CommandItem } from '../models';
 import { LoadHelper, UtilityHelper } from '../helpers';
 import { DataAccess, DataLayer, DataItems } from '../data';
-import { DelayDecorator } from '../decorators';
+import { DelayCall } from '../decorators';
 
 export class Command {
     private _commandItems: DataItems<CommandItem>;
@@ -24,17 +24,20 @@ export class Command {
 
     private init() {
         this._dl.Loaded.subscribe(update => {
-            if(update.Code == Codes.CommandItems) {
-                this._dl.CommandItems.forEach(cmd => {
-                    if(this._dl.State.SessionCode != cmd.SessionCode && this._dl.FBUser.uid == cmd.TargetUID) {
-                        if(cmd.Type == CommandType.View)
-                            this.Load(cmd.Data);
-                    }
+            if(update.Code == Codes.CommandItems) 
+                this.processCommand();
+        });
+    }
 
-                    if(this._dl.State.SessionCode == cmd.SessionCode)
-                        this.deleteCommand(cmd.IssuerUID);
-                });
+    private processCommand() {
+        this._dl.CommandItems.forEach(cmd => {
+            if(this._dl.State.SessionCode != cmd.SessionCode && this._dl.FBUser.uid == cmd.TargetUID) {
+                if(cmd.Type == CommandType.View)
+                    this.Load(cmd.Data);
             }
+
+            if(this._dl.State.SessionCode == cmd.SessionCode)
+                this.deleteCommand(cmd.IssuerUID);
         });
     }
 
@@ -43,7 +46,7 @@ export class Command {
         return this._loader.LoadComponent(selector);
     }
 
-    @DelayDecorator(3000)
+    @DelayCall(3000)
     private deleteCommand(uid: string) {
         let keys = new Array<string>();
         this._dl.CommandItems.forEach(cmd => {

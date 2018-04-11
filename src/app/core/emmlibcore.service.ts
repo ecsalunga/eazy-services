@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material';
 
 import { LoadHelper, StampHelper, UtilityHelper } from './helpers';
 import { LoadRef, Codes, Update, AccessMode, MemberItem, CommandType, CommandItem } from './models';
-import { DelayDecorator } from './decorators';
+import { DelayCall } from './decorators';
 import { DataAccess, DataLayer, DataItems } from './data';
 import { Access, Command } from './account';
 

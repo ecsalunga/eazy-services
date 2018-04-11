@@ -1,1 +1,1 @@
-export { DelayDecorator } from './delay';
+export { DelayCall } from './delay';

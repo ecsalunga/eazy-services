@@ -1,4 +1,4 @@
-export function DelayDecorator(delay: number = 0): MethodDecorator {
+export function DelayCall(delay: number = 0): MethodDecorator {
     return function(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
         let originalMethod = descriptor.value;
         

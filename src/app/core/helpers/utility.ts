@@ -1,7 +1,7 @@
 import { MatSnackBar } from '@angular/material';
 
 import { DataLayer } from '../data';
-import { DelayDecorator } from '../decorators';
+import { DelayCall } from '../decorators';
 
 export class UtilityHelper {
     private _dl: DataLayer;
@@ -24,7 +24,7 @@ export class UtilityHelper {
         this._snackBar.open(message, action, { duration: duration });
     }
 
-    @DelayDecorator(1)
+    @DelayCall(1)
     private showLoader() {
         this._dl.State.LoaderState = "in";
     }
