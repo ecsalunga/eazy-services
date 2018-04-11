@@ -1,16 +1,17 @@
-import { Observable, Subscriber, Subscription } from 'rxjs/Rx';
+import { Observable, Subscription, Subject } from 'rxjs/Rx';
 import { Message } from '../models';
 
 export class Duplex {
     public Arrived: Observable<Message>;
-    private _sender: Subscriber<Message>;
+    private _sender: Subject<Message>;
     private _websocket: WebSocket;
     private _path: string;
     private _sub: Subscription;
     
     constructor(path: string) {
         this._path = path;
-        this.Arrived = new Observable(obs => { this._sender = obs; });
+        this._sender = new Subject<Message>();
+        this.Arrived = this._sender.asObservable();
     }
 
     public Connect() {

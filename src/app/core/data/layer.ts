@@ -1,5 +1,5 @@
 import { User } from '@firebase/auth-types';
-import { Observable, Subscription, Subscriber } from 'rxjs/Rx';
+import { Observable, Subject } from 'rxjs/Rx';
 
 import { Setting, Update, Codes, State, UserItem, CommandItem } from '../models';
 import { MemberItem } from '../models/member';
@@ -8,7 +8,7 @@ import { FoodItem, FoodType, FoodSource } from '../models/food';
 
 export class DataLayer {
     public Loaded: Observable<Update>;
-    private _updater: Subscriber<Update>;
+    private _updater: Subject<Update>;
 
     FBUser: User;
     Member: MemberItem;
@@ -19,7 +19,8 @@ export class DataLayer {
 
     constructor() {
         this.State = new State();
-        this.Loaded = new Observable(obs => { this._updater = obs; });
+        this._updater = new Subject<Update>();
+        this.Loaded = this._updater.asObservable();
     }
 
     public Publish(update: Update) {
