@@ -17,6 +17,11 @@ export class FoodAdminItemListComponent implements OnInit {
     this.transfer();
   }
 
+  Schedule(item: FoodItem) {
+    item.IsAvailable = !item.IsAvailable;
+    this.core.DA.FoodItems.Save(item);
+  }
+
   Add() {
     this.core.DL.State.FoodItem = new FoodItem();
     this.transfer();

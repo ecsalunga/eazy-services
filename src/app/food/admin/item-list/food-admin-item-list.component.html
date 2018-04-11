@@ -34,6 +34,7 @@
           {{ item.PriceSell | number:'1.2-2'}}
         </td>
         <td class="right">
+          <button mat-mini-fab (click)="Schedule(item)" color="{{item.IsAvailable ? 'accent' : 'warn'}}" matTooltip="{{item.IsAvailable ? 'Available' : 'Unavailable'}}"><mat-icon>{{item.IsAvailable ? 'check' : 'close'}}</mat-icon></button>
           <button mat-mini-fab (click)="Select(item)" color="primary" matTooltip="View"><mat-icon>pageview</mat-icon></button>
         </td>
       </tr>

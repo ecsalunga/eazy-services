@@ -8,7 +8,6 @@ import { FoodSourceComponent } from './source/food-source.component';
 import { FoodAdminSourceComponent } from './admin/source/food-admin-source.component';
 import { FoodAdminItemComponent } from './admin/item/food-admin-item.component';
 import { FoodAdminTypeComponent } from './admin/type/food-admin-type.component';
-import { FoodAdminScheduleComponent } from './admin/schedule/food-admin-schedule.component';
 import { FoodAdminSourceListComponent } from './admin/source-list/food-admin-source-list.component';
 import { FoodAdminTypeListComponent } from './admin/type-list/food-admin-type-list.component';
 import { FoodAdminItemListComponent } from './admin/item-list/food-admin-item-list.component';
@@ -17,8 +16,7 @@ import { FoodAdminItemListComponent } from './admin/item-list/food-admin-item-li
   declarations: [
     FoodTypeComponent, FoodAdminTypeComponent, FoodAdminTypeListComponent,
     FoodItemComponent, FoodAdminItemComponent, FoodAdminItemListComponent,
-    FoodSourceComponent, FoodAdminSourceComponent, FoodAdminSourceListComponent,
-    FoodAdminScheduleComponent
+    FoodSourceComponent, FoodAdminSourceComponent, FoodAdminSourceListComponent
   ],
   imports: [
     EmmLibModule.forRoot()
@@ -26,8 +24,7 @@ import { FoodAdminItemListComponent } from './admin/item-list/food-admin-item-li
   entryComponents: [ 
     FoodTypeComponent, FoodAdminTypeComponent, FoodAdminTypeListComponent,
     FoodItemComponent, FoodAdminItemComponent, FoodAdminItemListComponent,
-    FoodSourceComponent, FoodAdminSourceComponent, FoodAdminSourceListComponent,
-    FoodAdminScheduleComponent
+    FoodSourceComponent, FoodAdminSourceComponent, FoodAdminSourceListComponent
   ]
 })
 export class FoodModule { }

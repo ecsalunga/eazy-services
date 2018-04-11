@@ -11,5 +11,6 @@ export class FoodItem extends Item {
     SourceKey: string;
     SourceName: string;
     
+    IsAvailable: boolean;
     Rating: number;
 }
