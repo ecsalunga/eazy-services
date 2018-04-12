@@ -13,4 +13,10 @@ export class FoodItem extends Item {
     
     IsAvailable: boolean;
     Rating: number;
+
+    constructor() {
+        super();
+        this.IsAvailable = true;
+        this.Rating = 5;
+    }
 }

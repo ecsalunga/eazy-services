@@ -15,5 +15,7 @@ export const Codes = {
 
   Setting: "Setting",
   MemberItems: "MemberItems",
-  UserItems: "UserItems"
+  UserItems: "UserItems",
+
+  MaxRate: 5
 };

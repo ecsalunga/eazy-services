@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
-import { EmmLibCoreService, Setting, Codes, DelayCall, CommandItem, CommandType } from '../core';
+import { EmmLibCoreService, Setting, Codes, DelayCall, CommandItem, CommandType, RatingToken } from '../core';
 import { ArticleItem } from '../core/models/article';
 
 @Component({
@@ -10,11 +10,13 @@ import { ArticleItem } from '../core/models/article';
   styleUrls: ['./tester.component.css']
 })
 export class TesterComponent {
+  rating: RatingToken;
   content: string = '<p>Hello <strong>World !</strong></p>';
   viewPage: string = "food-item";
 
   constructor(private core: EmmLibCoreService) { 
     this.core.DL.State.Title = "Tester Page";
+    this.rating = new RatingToken(3, 5);
   }
 
   SaveEditor() {

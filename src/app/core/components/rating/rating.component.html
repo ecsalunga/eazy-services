@@ -1,0 +1,3 @@
+<ng-container *ngFor="let item of Starts">
+  <span (click)="Select(item)" class="star {{ Rating.Value >= item ? 'selected' : 'not-selected' }}"><mat-icon>star_rate</mat-icon></span>
+</ng-container>

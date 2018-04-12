@@ -18,21 +18,22 @@ import { EmmLibCoreService } from './emmlibcore.service';
 import { EmmLibOutletComponent } from './components/emmlib-outlet/emmlib-outlet.component';
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { RatingComponent } from './components/rating/rating.component';
 
 @NgModule({
   imports: [
     CommonModule,
     AngularFireModule.initializeApp(DataSetting.firebase), AngularFireAuthModule, AngularFireDatabaseModule,
-    MatSnackBarModule, MatProgressBarModule
+    MatSnackBarModule, MatProgressBarModule, MatIconModule
   ],
   exports: [
-    EmmLibOutletComponent, ImageUploaderComponent, BrowserModule,
-    BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
+    EmmLibOutletComponent, ImageUploaderComponent, RatingComponent, 
+    BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     MatButtonModule, MatGridListModule, MatFormFieldModule, 
     MatInputModule, MatIconModule, MatTooltipModule,
     MatGridListModule, MatProgressBarModule, MatSelectModule
   ],
-  declarations: [ EmmLibOutletComponent, ImageUploaderComponent, MenuComponent ],
+  declarations: [ EmmLibOutletComponent, ImageUploaderComponent, MenuComponent, RatingComponent ],
   entryComponents: [ MenuComponent ]
 })
 export class EmmLibModule {

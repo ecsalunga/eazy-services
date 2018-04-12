@@ -9,6 +9,10 @@
 </div>
 <div class="vSmallSpacer"></div>
 <div>
+    <emm-rating [Rating]="rating"></emm-rating>
+</div>
+<div class="vSmallSpacer"></div>
+<div>
     <input type="text" [(ngModel)]="viewPage" />
     <button mat-raised-button (click)="ViewCommand()">Send View</button>
 </div>

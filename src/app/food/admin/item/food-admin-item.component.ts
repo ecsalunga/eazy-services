@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
-import { EmmLibCoreService, UploadToken, FoodItem, Codes, DelayCall } from '../../../core';
+import { EmmLibCoreService, UploadToken, FoodItem, Codes, DelayCall, RatingToken } from '../../../core';
 
 @Component({
   selector: 'food-admin-item',
@@ -14,10 +14,12 @@ export class FoodAdminItemComponent implements OnInit {
   BuyFC = new FormControl(null, [ Validators.required, Validators.min(1) ]);
 
   Model: FoodItem;
+  Rating: RatingToken;
 
   constructor(public core: EmmLibCoreService) {
     this.core.DL.State.Title = "Food Admin Item";
     this.Model = this.core.DL.State.FoodItem;
+    this.Rating = new RatingToken(this.Model.Rating, Codes.MaxRate);
   }
 
   public Save() {
@@ -30,6 +32,9 @@ export class FoodAdminItemComponent implements OnInit {
       let type = this.core.DL.FoodTypes.find(item => item.key == this.Model.TypeKey);
       this.Model.TypeName = type.Name;
     }
+
+    if(this.Rating.IsDirty)
+      this.Model.Rating = this.Rating.Value;
 
     this.core.DA.FoodItems.Save(this.Model);
     this.transfer();

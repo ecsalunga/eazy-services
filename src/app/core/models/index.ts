@@ -7,6 +7,7 @@ export { Codes } from './codes';
 export { State } from './state';
 export { UserItem } from './user';
 export { UploadToken } from './uploadtoken';
+export { RatingToken } from './ratingtoken';
 export { AccessMode } from './accessmode';
 export { CommandItem } from './command';
 export { CommandType } from './commandtype';
