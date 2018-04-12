@@ -35,7 +35,6 @@ export class FoodAdminItemListComponent implements OnInit {
     this.core.Load("food-admin-item");
   }
 
-  @DelayCall(300)
   private loadList() {
     if(this.core.DL.State.ReturnSelector == Codes.FoodAdminTypeSelector) 
       this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.TypeKey == this.core.DL.State.FoodType.key);
@@ -44,6 +43,10 @@ export class FoodAdminItemListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadList(); 
+    this.loadList();
+    this.core.Changed.subscribe(update => {
+      if(update.Type == Codes.DataLoaded && update.Code == Codes.FoodItems)
+        this.loadList();
+    });
   }
 }
