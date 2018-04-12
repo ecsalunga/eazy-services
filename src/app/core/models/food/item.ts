@@ -1,4 +1,5 @@
 import { Item } from '../item';
+import { Codes } from '../codes';
 
 export class FoodItem extends Item {
     Code: string;
@@ -17,6 +18,6 @@ export class FoodItem extends Item {
     constructor() {
         super();
         this.IsAvailable = true;
-        this.Rating = 5;
+        this.Rating = Codes.MaxRate;
     }
 }
