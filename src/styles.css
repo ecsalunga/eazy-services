@@ -156,12 +156,12 @@ custom class
 .menu-img {
     height: 250px;
     transition: 0.5s;
-    width: 98%;
+    width: 100%;
 }
 
 .blurb {
     margin-top: 7px;
-    display: none;
+    height: 35px;
 }
 
 .contents {
@@ -172,20 +172,17 @@ custom class
 @media (min-width: 550px) {
     .item-selection { margin-left: 4%; width: 44%; }
     .menu-img { width: auto; height: 180px; }
-    .blurb { display: none; }
     .contents { padding: 20px; }
 }
 
 @media (min-width: 720px) {
     .item-selection { margin-left: 4%; width: 28%; }
     .menu-img { height: 150px; }
-    .blurb { display: block; }
 }
 
 @media (min-width: 1200px) {
     .item-selection { margin-left: 2%; width: 22%; }
     .menu-img { height: 130px; }
-    .blurb { display: block; }
 }
 
 .vBigSpacer {
