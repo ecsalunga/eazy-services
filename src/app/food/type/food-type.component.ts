@@ -16,7 +16,9 @@ export class FoodTypeComponent implements OnInit {
   }
 
   Process(item: MenuItem) {
-    console.log(item);
+    this.core.DL.State.ReturnSelector = "food-type";
+    this.core.DL.State.FoodType = this.core.DL.FoodTypes.find(source => source.key == item.Selector);
+    this.core.Load("food-item-list");
   }
 
   ngOnInit() {

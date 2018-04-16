@@ -11,6 +11,7 @@ export const Codes = {
   FoodItems: "FoodItems",
   FoodSources: "FoodSources",
   FoodTypes: "FoodTypes",
+  FoodTypeSelector: "food-type",
   FoodAdminTypeSelector: "food-admin-type-list",
 
   Setting: "Setting",

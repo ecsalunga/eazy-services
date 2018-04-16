@@ -171,7 +171,7 @@ custom class
 
 @media (min-width: 550px) {
     .item-selection { margin-left: 4%; width: 44%; }
-    .menu-img { width: auto; height: 180px; }
+    .menu-img { height: 180px; }
     .contents { padding: 20px; }
 }
 

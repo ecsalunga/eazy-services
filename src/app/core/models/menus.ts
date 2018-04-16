@@ -13,21 +13,21 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
         },
         {
             Title: "Food Services",
-            ImgSrc: "/assets/food.png",
+            ImgSrc: "/assets/food.jpg",
             Blurb: "Go to Food Module to access blah blah blah.",
             Type: MenuType.Menu,
             Selector: "Food"
         },
         {
             Title: "Food Admin",
-            ImgSrc: "/assets/food.png",
+            ImgSrc: "/assets/food.jpg",
             Blurb: "Go to Food administration page blah blah blah.",
             Type: MenuType.Menu,
             Selector: "Food-Admin"
         },
         {
             Title: "Water Module",
-            ImgSrc: "/assets/configuration.png",
+            ImgSrc: "/assets/water.jpg",
             Blurb: "Go to Water Module to access blah blah blah.",
             Type: MenuType.Menu,
             Selector: "Water"
@@ -43,14 +43,14 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
     menus["Food"] = [
         {
             Title: "Food Types",
-            ImgSrc: "/assets/food.png",
+            ImgSrc: "/assets/food.jpg",
             Blurb: "View food by types.",
             Type: MenuType.Module,
             Selector: "food-type"
         },
         {
             Title: "Food Source",
-            ImgSrc: "/assets/food.png",
+            ImgSrc: "/assets/food.jpg",
             Blurb: "View food by source.",
             Type: MenuType.Module,
             Selector: "food-source"
@@ -66,14 +66,14 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
     menus["Food-Admin"] = [
         {
             Title: "Food Sources",
-            ImgSrc: "/assets/food.png",
+            ImgSrc: "/assets/food.jpg",
             Blurb: "View list of food sources.",
             Type: MenuType.Module,
             Selector: "food-admin-source-list"
         },
         {
             Title: "Food Types",
-            ImgSrc: "/assets/food.png",
+            ImgSrc: "/assets/food.jpg",
             Blurb: "View list of food types.",
             Type: MenuType.Module,
             Selector: "food-admin-type-list"
@@ -89,14 +89,14 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
     menus["Water"] = [
         {
             Title: "Water Types",
-            ImgSrc: "/assets/configuration.png",
+            ImgSrc: "/assets/water.jpg",
             Blurb: "View food by types.",
             Type: MenuType.Module,
             Selector: "food-type"
         },
         {
             Title: "Water Source",
-            ImgSrc: "/assets/configuration.png",
+            ImgSrc: "/assets/water.jpg",
             Blurb: "View food by source.",
             Type: MenuType.Module,
             Selector: "food-source"

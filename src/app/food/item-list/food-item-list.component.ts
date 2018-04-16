@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { EmmLibCoreService, FoodItem, Codes, RatingToken } from '../../../core';
+
+import { EmmLibCoreService, FoodItem, Codes, RatingToken } from '../../core';
 
 @Component({
-  selector: 'food-admin-item-list',
-  templateUrl: './food-admin-item-list.component.html',
-  styleUrls: ['./food-admin-item-list.component.css']
+  selector: 'food-item-list',
+  templateUrl: './food-item-list.component.html',
+  styleUrls: ['./food-item-list.component.css']
 })
-export class FoodAdminItemListComponent implements OnInit {
+export class FoodItemListComponent implements OnInit {
   constructor(public core: EmmLibCoreService) {
-    this.core.DL.State.Title = "Food Admin Item List";
+    this.core.DL.State.Title = "Food Item List";
     this.core.DL.State.FoodItems = new Array<FoodItem>();
   }
 
@@ -26,21 +27,16 @@ export class FoodAdminItemListComponent implements OnInit {
     return new RatingToken(item.Rating, false);
   }
 
-  Add() {
-    this.core.DL.State.FoodItem = new FoodItem();
-    this.transfer();
-  }
-
   Back() {
     this.core.Load(this.core.DL.State.ReturnSelector);
   }
 
   private transfer() {
-    this.core.Load("food-admin-item");
+    this.core.Load("food-item");
   }
 
   private loadList() {
-    if(this.core.DL.State.ReturnSelector == Codes.FoodAdminTypeSelector) 
+    if(this.core.DL.State.ReturnSelector == Codes.FoodTypeSelector) 
       this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.TypeKey == this.core.DL.State.FoodType.key);
     else
       this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.SourceKey == this.core.DL.State.FoodSource.key); 

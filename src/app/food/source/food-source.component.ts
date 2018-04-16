@@ -16,7 +16,9 @@ export class FoodSourceComponent implements OnInit {
   }
 
   Process(item: MenuItem) {
-    console.log(item);
+    this.core.DL.State.ReturnSelector = "food-source";
+    this.core.DL.State.FoodSource = this.core.DL.FoodSources.find(source => source.key == item.Selector);
+    this.core.Load("food-item-list");
   }
 
   ngOnInit() {
