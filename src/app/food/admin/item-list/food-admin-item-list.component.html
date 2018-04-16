@@ -34,7 +34,7 @@
           {{ item.SourceName }}
         </td>
         <td>
-          {{ item.Rating }}
+          <emm-rating [Rating]="GetRating(item)"></emm-rating>
         </td>
         <td>
           {{ item.PriceSell | number:'1.2-2'}}

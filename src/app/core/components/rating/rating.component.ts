@@ -15,7 +15,8 @@ export class RatingComponent implements OnInit {
   constructor() { }
 
   Select(item: number) {
-    this.Rating.Set(item);
+    if(this.Rating.IsSelectable)
+      this.Rating.Set(item);
   }
 
   ngOnInit() {

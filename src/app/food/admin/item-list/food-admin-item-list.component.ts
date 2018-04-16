@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmmLibCoreService, UploadToken, FoodItem, Codes, DelayCall } from '../../../core';
+import { EmmLibCoreService, UploadToken, FoodItem, Codes, DelayCall, RatingToken } from '../../../core';
 
 @Component({
   selector: 'food-admin-item-list',
@@ -20,6 +20,10 @@ export class FoodAdminItemListComponent implements OnInit {
   Schedule(item: FoodItem) {
     item.IsAvailable = !item.IsAvailable;
     this.core.DA.FoodItems.Save(item);
+  }
+
+  GetRating(item: FoodItem): RatingToken {
+    return new RatingToken(item.Rating, Codes.MaxRate, false);
   }
 
   Add() {
