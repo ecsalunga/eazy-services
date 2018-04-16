@@ -17,7 +17,7 @@ export class MenuItemComponent implements OnInit {
 
   constructor(public core: EmmLibCoreService) { }
 
-  Process(menu: MenuItem) {
+  Process() {
     this.OnClicked.emit(this.Menu);
   }
 
