@@ -1,13 +1,5 @@
-<div class="container menu">
+<div class="container">
   <ng-container *ngFor="let menu of core.DL.State.MenuItems">
-    <div (click)="Process(menu)" class="item-selection">
-      <div class="header">
-        <img [alt]="menu.Blurb" [src]="menu.ImgSrc">
-      </div>
-      <div class="contents">
-        <div class="title">{{ menu.Title }}</div>
-        <div class="blurb">{{ menu.Blurb }}</div>
-      </div>
-    </div>
+    <menu-item [Menu]="menu" (OnClicked)="Process(menu)"></menu-item>
   </ng-container>
 </div>

@@ -44,7 +44,7 @@ custom class
 
 .navbar .left {
     margin-left: 10px;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bold;
     float: left;
 }
@@ -75,7 +75,7 @@ custom class
     display: inline-flex;
     vertical-align: middle;
     align-items: center;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bold;
 }
 
@@ -153,6 +153,11 @@ custom class
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+.menu-img {
+    height: 250px;
+    transition: 0.5s;
+}
+
 .blurb {
     margin-top: 7px;
     display: none;
@@ -165,17 +170,20 @@ custom class
 
 @media (min-width: 550px) {
     .item-selection { margin-left: 4%; width: 44%; }
+    .menu-img { height: 180px; }
     .blurb { display: none; }
     .contents { padding: 20px; }
 }
 
 @media (min-width: 720px) {
     .item-selection { margin-left: 4%; width: 28%; }
+    .menu-img { height: 150px; }
     .blurb { display: block; }
 }
 
 @media (min-width: 1200px) {
     .item-selection { margin-left: 2%; width: 22%; }
+    .menu-img { height: 130px; }
     .blurb { display: block; }
 }
 

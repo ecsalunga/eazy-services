@@ -19,6 +19,7 @@ import { EmmLibOutletComponent } from './components/emmlib-outlet/emmlib-outlet.
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { MenuItemComponent } from './components/menu-item/menu-item.component';
 
 @NgModule({
   imports: [
@@ -27,13 +28,13 @@ import { RatingComponent } from './components/rating/rating.component';
     MatSnackBarModule, MatProgressBarModule, MatIconModule
   ],
   exports: [
-    EmmLibOutletComponent, ImageUploaderComponent, RatingComponent, 
+    EmmLibOutletComponent, ImageUploaderComponent, RatingComponent, MenuItemComponent,
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     MatButtonModule, MatGridListModule, MatFormFieldModule, 
     MatInputModule, MatIconModule, MatTooltipModule,
     MatGridListModule, MatProgressBarModule, MatSelectModule
   ],
-  declarations: [ EmmLibOutletComponent, ImageUploaderComponent, MenuComponent, RatingComponent ],
+  declarations: [ EmmLibOutletComponent, ImageUploaderComponent, MenuComponent, RatingComponent, MenuItemComponent ],
   entryComponents: [ MenuComponent ]
 })
 export class EmmLibModule {

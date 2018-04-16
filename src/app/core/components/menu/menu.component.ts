@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { EmmLibCoreService } from '../../emmlibcore.service';
-import { Update, UploadToken, MenuItem, Codes, MenuType, Menus } from '../../models';
+import { MenuItem, MenuType, Menus } from '../../models';
 
 @Component({
   selector: 'emm-menu',
@@ -9,8 +9,6 @@ import { Update, UploadToken, MenuItem, Codes, MenuType, Menus } from '../../mod
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  loader: string;
-
   constructor(public core: EmmLibCoreService) { 
     this.core.DL.State.Title = this.core.DL.State.Menu;
   }
