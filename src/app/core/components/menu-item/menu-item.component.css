@@ -1,5 +1,7 @@
 .header {
     text-align: center;
+    overflow: hidden;
+    padding: 2px;
 }
 
 .menu-title {
