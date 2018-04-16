@@ -156,6 +156,7 @@ custom class
 .menu-img {
     height: 250px;
     transition: 0.5s;
+    width: 98%;
 }
 
 .blurb {
@@ -170,7 +171,7 @@ custom class
 
 @media (min-width: 550px) {
     .item-selection { margin-left: 4%; width: 44%; }
-    .menu-img { height: 180px; }
+    .menu-img { width: auto; height: 180px; }
     .blurb { display: none; }
     .contents { padding: 20px; }
 }
