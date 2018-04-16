@@ -1,13 +1,15 @@
+import { Codes } from './codes';
+
 export class RatingToken {
     private _isDirty: boolean;
     private _value: number;
     private _max: number;
     private _isSelectable: boolean;
 
-    constructor(value: number, max: number, isSelectable: boolean = true) {
+    constructor(value: number, isSelectable: boolean = true, max: number = Codes.MaxRate) {
         this._value = value;
-        this._max = max;
         this._isSelectable = isSelectable;
+        this._max = max;
         this._isDirty = false;
     }
 

@@ -23,7 +23,7 @@ export class FoodAdminItemListComponent implements OnInit {
   }
 
   GetRating(item: FoodItem): RatingToken {
-    return new RatingToken(item.Rating, Codes.MaxRate, false);
+    return new RatingToken(item.Rating, false);
   }
 
   Add() {

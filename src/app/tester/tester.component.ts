@@ -16,7 +16,7 @@ export class TesterComponent {
 
   constructor(private core: EmmLibCoreService) { 
     this.core.DL.State.Title = "Tester Page";
-    this.rating = new RatingToken(3, 5);
+    this.rating = new RatingToken(3);
   }
 
   SaveEditor() {

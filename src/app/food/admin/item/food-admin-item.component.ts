@@ -19,7 +19,7 @@ export class FoodAdminItemComponent implements OnInit {
   constructor(public core: EmmLibCoreService) {
     this.core.DL.State.Title = "Food Admin Item";
     this.Model = this.core.DL.State.FoodItem;
-    this.Rating = new RatingToken(this.Model.Rating, Codes.MaxRate);
+    this.Rating = new RatingToken(this.Model.Rating);
   }
 
   public Save() {
