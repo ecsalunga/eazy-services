@@ -11,7 +11,9 @@ import { Update, UploadToken, MenuItem, Codes, MenuType, Menus } from '../../mod
 export class MenuComponent implements OnInit {
   loader: string;
 
-  constructor(public core: EmmLibCoreService) { }
+  constructor(public core: EmmLibCoreService) { 
+    this.core.DL.State.Title = this.core.DL.State.Menu;
+  }
 
   Process(menu: MenuItem) {
     this.core.AnimateContent();
@@ -21,7 +23,7 @@ export class MenuComponent implements OnInit {
     else if(menu.Type == MenuType.Menu) {
       this.core.DL.State.MenuItems = Menus[ menu.Selector ];
       this.core.DL.State.Title = menu.Title;
-      this.core.DL.State.Menu = menu.Selector;
+      this.core.DL.State.Menu = menu.Title;
     }
   }
 
