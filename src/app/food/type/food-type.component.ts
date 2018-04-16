@@ -17,7 +17,7 @@ export class FoodTypeComponent implements OnInit {
 
   Process(item: MenuItem) {
     this.core.DL.State.ReturnSelector = "food-type";
-    this.core.DL.State.FoodType = this.core.DL.FoodTypes.find(source => source.key == item.Selector);
+    this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.TypeKey == item.Selector);
     this.core.Load("food-item-list");
   }
 

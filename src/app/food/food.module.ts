@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { EmmLibModule } from '../core';
 
 import { FoodTypeComponent } from './type/food-type.component';
-import { FoodItemComponent } from './item/food-item.component';
 import { FoodItemListComponent } from './item-list/food-item-list.component';
 import { FoodSourceComponent } from './source/food-source.component';
 import { FoodAdminSourceComponent } from './admin/source/food-admin-source.component';
@@ -16,7 +15,7 @@ import { FoodAdminItemListComponent } from './admin/item-list/food-admin-item-li
 @NgModule({
   declarations: [
     FoodTypeComponent, FoodAdminTypeComponent, FoodAdminTypeListComponent,
-    FoodItemComponent, FoodItemListComponent, FoodAdminItemComponent, FoodAdminItemListComponent,
+    FoodItemListComponent, FoodAdminItemComponent, FoodAdminItemListComponent,
     FoodSourceComponent, FoodAdminSourceComponent, FoodAdminSourceListComponent
   ],
   imports: [
@@ -24,7 +23,7 @@ import { FoodAdminItemListComponent } from './admin/item-list/food-admin-item-li
   ],
   entryComponents: [ 
     FoodTypeComponent, FoodAdminTypeComponent, FoodAdminTypeListComponent,
-    FoodItemComponent, FoodItemListComponent, FoodAdminItemComponent, FoodAdminItemListComponent,
+    FoodItemListComponent, FoodAdminItemComponent, FoodAdminItemListComponent,
     FoodSourceComponent, FoodAdminSourceComponent, FoodAdminSourceListComponent
   ]
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { EmmLibCoreService, FoodItem, Codes, RatingToken } from '../../core';
+import { EmmLibCoreService, MenuItem } from '../../core';
 
 @Component({
   selector: 'food-item-list',
@@ -8,45 +8,31 @@ import { EmmLibCoreService, FoodItem, Codes, RatingToken } from '../../core';
   styleUrls: ['./food-item-list.component.css']
 })
 export class FoodItemListComponent implements OnInit {
+  Items: Array<MenuItem>;
+
   constructor(public core: EmmLibCoreService) {
     this.core.DL.State.Title = "Food Item List";
-    this.core.DL.State.FoodItems = new Array<FoodItem>();
+    this.Items = new Array<MenuItem>();
   }
 
-  Select(item: FoodItem) {
-    this.core.DL.State.FoodItem = item;
-    this.transfer();
-  }
-
-  Schedule(item: FoodItem) {
-    item.IsAvailable = !item.IsAvailable;
-    this.core.DA.FoodItems.Save(item);
-  }
-
-  GetRating(item: FoodItem): RatingToken {
-    return new RatingToken(item.Rating, false);
-  }
-
-  Back() {
-    this.core.Load(this.core.DL.State.ReturnSelector);
-  }
-
-  private transfer() {
-    this.core.Load("food-item");
+  Process(item: MenuItem) {
+    console.log(item);  
   }
 
   private loadList() {
-    if(this.core.DL.State.ReturnSelector == Codes.FoodTypeSelector) 
-      this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.TypeKey == this.core.DL.State.FoodType.key);
-    else
-      this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.SourceKey == this.core.DL.State.FoodSource.key); 
+    this.core.DL.State.FoodItems.forEach(food => {
+      let type = this.core.DL.FoodTypes.find(type => type.key ==  food.TypeKey);
+      let item = new MenuItem();
+      item.Selector = food.key;
+      item.ImgSrc = type.ImageUrl
+      item.Title = type.Name + ` (PHP ${food.PriceSell})`;
+      item.Blurb = food.SourceName;
+
+      this.Items.push(item);
+    });
   }
 
   ngOnInit() {
     this.loadList();
-    this.core.Changed.subscribe(update => {
-      if(update.Type == Codes.DataLoaded && update.Code == Codes.FoodItems)
-        this.loadList();
-    });
   }
 }

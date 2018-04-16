@@ -17,7 +17,7 @@ export class FoodSourceComponent implements OnInit {
 
   Process(item: MenuItem) {
     this.core.DL.State.ReturnSelector = "food-source";
-    this.core.DL.State.FoodSource = this.core.DL.FoodSources.find(source => source.key == item.Selector);
+    this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.SourceKey == item.Selector);
     this.core.Load("food-item-list");
   }
 
@@ -30,7 +30,7 @@ export class FoodSourceComponent implements OnInit {
       item.Blurb = source.Blurb;
 
       this.Items.push(item);
-  });
+    });
   }
 
 }
