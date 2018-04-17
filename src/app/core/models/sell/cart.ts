@@ -37,6 +37,8 @@ export class Cart {
         else if(update.Type == Codes.RemoveTriggered)
             this.Items = this.Items.filter(item => item.ItemKey != sell.ItemKey);
 
+        this.Items.sort((item1, item2) => item1.Title.localeCompare(item2.Title));
+
         let count = 0;
         let total = 0;
 
