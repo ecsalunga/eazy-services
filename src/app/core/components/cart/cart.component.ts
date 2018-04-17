@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { EmmLibCoreService } from '../../emmlibcore.service';
-import { MenuItem, MenuType, Menus } from '../../models';
+import { Update, Codes, SellItem } from '../../models';
 
 @Component({
   selector: 'emm-cart',
@@ -12,5 +12,9 @@ export class CartComponent implements OnInit {
 
   constructor(public core: EmmLibCoreService) { }
   
+  Remove(item: SellItem) {
+    this.core.Publish(new Update(Codes.RemoveTriggered, item));
+  }
+
   ngOnInit() { }
 }

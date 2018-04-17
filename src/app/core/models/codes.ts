@@ -8,6 +8,7 @@ export const Codes = {
   ImageChanged: "ImageChanged",
   FileUploaded: "FileUploaded",
   BuyTriggered: "BuyTriggered",
+  RemoveTriggered: "RemoveTriggered",
   UserChanged: "UserChanged",
   DataLoaded: "DataLoaded",
 

@@ -19,9 +19,15 @@
 }
 
 .expanded {
-    width: 250px;
+    width: 450px;
     position: relative;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.55);
     background-color: black;
     padding: 10px;
+}
+
+.total td {
+    font-weight: bold;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }

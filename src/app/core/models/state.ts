@@ -43,7 +43,9 @@ export class State {
     }
 
     public Update(update: Update) {
-        this.Cart.Update(update);
+        if(update.Type == Codes.BuyTriggered || update.Type == Codes.RemoveTriggered) {
+            this.Cart.Update(update);
+        }
     }
 
     public get FoodSource(): FoodSource {

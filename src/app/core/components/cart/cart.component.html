@@ -4,11 +4,54 @@
             <mat-icon>shopping_cart</mat-icon>{{ core.DL.State.Cart.Count }}
         </div>
         <ng-template #expanded>
-            <div class="expanded clickable" (click)="core.DL.State.Cart.Toggle()">
-                <div>pending...</div>
-                <div>pending...</div>
-                <div>pending...</div>
-                <div>pending...</div>
+            <div class="expanded">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Item
+                            </th>
+                            <th>
+                                Price / Quantity
+                            </th>
+                            <th>
+                                Total
+                            </th>
+                            <th>
+                            </th>
+                        </tr>
+                    </thead>
+                    <ng-container *ngFor="let item of core.DL.State.Cart.Items">
+                        <tr>
+                            <td>{{ item.Title }}</td>
+                            <td>{{ item.Price | number:'1.2-2' }} / {{ item.Quantity }}</td>
+                            <td>{{ item.Price * item.Quantity | number:'1.2-2'}}</td>
+                            <td class="right">
+                                <button mat-mini-fab (click)="Remove(item)" color="warn" matTooltip="Remove">
+                                    <mat-icon>remove_shopping_cart</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </ng-container>
+                    <tr class="total">
+                        <td>
+                            Total
+                        </td>
+                        <td></td>
+                        <td>{{ core.DL.State.Cart.Total | number:'1.2-2'}}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button mat-raised-button color="primary" (click)="core.DL.State.Cart.Toggle()" matTooltip="Cancel">Cancel</button>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button mat-raised-button color="primary" (click)="core.DL.State.Cart.Checkout()" matTooltip="Checkout">Checkout</button>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </ng-template>
     </div>

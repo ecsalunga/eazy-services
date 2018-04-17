@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { EmmLibCoreService, MenuItem, SellItem } from '../../core';
+import { EmmLibCoreService, MenuItem, ItemType, SellItem } from '../../core';
 
 @Component({
   selector: 'food-source',
@@ -23,6 +23,7 @@ export class FoodSourceComponent implements OnInit {
       let sell = new SellItem(food.key, food.TypeName, food.PriceSell);
       sell.ImgSrc = food.ImageUrl;
       sell.Blurb = food.Blurb;
+      sell.Type = ItemType.Food;
       sellItems.push(sell);
     });
 
