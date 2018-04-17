@@ -18,7 +18,7 @@ export class SellComponent implements OnInit {
 
     if(buy.Type == ItemType.Food) {
       let selected = this.core.DL.FoodItems.find(item => item.key == buy.ItemKey);
-      buy.Title = `${selected.TypeName} (${selected.SourceName})`;
+      buy.Title = `${selected.TypeName} ( ${selected.SourceName} )`;
     }
 
     this.core.DL.State.Cart.Toggle(false);

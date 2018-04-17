@@ -7,11 +7,12 @@
 .sell-title {
     font-size: 15px;
     font-weight: bold;
-    height: 25px;
-    margin-bottom: 5px;
+    height: 30px;
+    margin-bottom: 10px;
 }
 
 .sell-price {
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 
