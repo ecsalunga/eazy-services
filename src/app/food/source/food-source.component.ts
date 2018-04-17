@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { EmmLibCoreService, MenuItem } from '../../core';
+import { EmmLibCoreService, MenuItem, SellItem } from '../../core';
 
 @Component({
   selector: 'food-source',
@@ -17,8 +17,19 @@ export class FoodSourceComponent implements OnInit {
 
   Process(item: MenuItem) {
     this.core.DL.State.ReturnSelector = "food-source";
-    this.core.DL.State.FoodItems = this.core.DL.FoodItems.filter(food => food.SourceKey == item.Selector);
-    this.core.Load("food-item-list");
+    let items = this.core.DL.FoodItems.filter(food => food.SourceKey == item.Selector);
+    let sellItems = Array<SellItem>();
+    items.forEach(food => {
+      let sell = new SellItem(food.key, food.TypeName, food.PriceSell);
+      sell.ImgSrc = food.ImageUrl;
+      sell.Blurb = food.Blurb;
+      sellItems.push(sell);
+    });
+
+    this.core.DL.State.Sell = item.Title;
+    this.core.DL.State.SellItems = sellItems;
+
+    this.core.Load("emm-sell");
   }
 
   ngOnInit() {

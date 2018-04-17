@@ -1,0 +1,25 @@
+.header {
+    text-align: center;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.sell-title {
+    font-size: 15px;
+    font-weight: bold;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+.sell-price {
+    margin-bottom: 5px;
+}
+
+.item-selection {
+    cursor: default;
+}
+
+.add {
+    width: 100%;
+    text-align: right;
+}

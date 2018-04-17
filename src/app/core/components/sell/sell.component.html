@@ -1,0 +1,5 @@
+<div class="container">
+  <ng-container *ngFor="let item of core.DL.State.SellItems">
+    <sell-item [Sell]="item" (OnClicked)="Process(item)"></sell-item>
+  </ng-container>
+</div>

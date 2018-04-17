@@ -1,4 +1,4 @@
-import { Item } from './item';
+import { Item } from '../item';
 import { CommandType } from './commandtype';
 
 export class CommandItem extends Item {

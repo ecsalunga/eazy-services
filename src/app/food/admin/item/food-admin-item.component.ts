@@ -31,6 +31,8 @@ export class FoodAdminItemComponent implements OnInit {
     if(this.Model.TypeKey != null) {
       let type = this.core.DL.FoodTypes.find(item => item.key == this.Model.TypeKey);
       this.Model.TypeName = type.Name;
+      this.Model.ImageUrl = type.ImageUrl;
+      this.Model.Blurb = type.Blurb;
     }
 
     if(this.Rating.IsDirty)

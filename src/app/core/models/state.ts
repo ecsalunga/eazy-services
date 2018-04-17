@@ -1,8 +1,9 @@
 import { FoodSource, FoodType, FoodItem } from './food';
-import { AccessMode } from './accessmode';
-import { MenuItem } from './menuitem';
+import { MenuItem, Menus } from './menu';
+import { SellItem, Cart } from './sell';
+import { AccessMode } from './user';
 import { Codes } from './codes';
-import { Menus } from './menus';
+import { Update } from './update';
 
 export class State {
     Title: string;
@@ -13,6 +14,10 @@ export class State {
 
     Menu: string;
     MenuItems: Array<MenuItem>;
+
+    Sell: string;
+    SellItems: Array<SellItem>;
+    Cart: Cart;
 
     IsFBUserLoaded: boolean = false;
     IsMemberLoaded: boolean = false;
@@ -34,6 +39,11 @@ export class State {
         this.MenuItems = Menus[ Codes.Home ];
         this.AccessMode = AccessMode.Guest;
         this.DefaultImage = "/assets/default.jpeg";
+        this.Cart = new Cart();
+    }
+
+    public Update(update: Update) {
+        this.Cart.Update(update);
     }
 
     public get FoodSource(): FoodSource {

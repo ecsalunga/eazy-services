@@ -8,7 +8,9 @@ export class FoodItem extends Item {
     
     TypeKey: string;
     TypeName: string;
-
+    ImageUrl: string;
+    Blurb: string;
+    
     SourceKey: string;
     SourceName: string;
     

@@ -1,5 +1,5 @@
 <div class="container">
-  <ng-container *ngFor="let menu of core.DL.State.MenuItems">
-    <menu-item [Menu]="menu" (OnClicked)="Process(menu)"></menu-item>
+  <ng-container *ngFor="let item of core.DL.State.MenuItems">
+    <menu-item [Menu]="item" (OnClicked)="Process(item)"></menu-item>
   </ng-container>
 </div>

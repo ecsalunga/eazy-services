@@ -1,9 +1,14 @@
 export const Codes = {
   Home: "Home",
   MenuSelector: "emm-menu",
-  ImageChange: "ImageChanged",
+  SellSelector: "emm-sell",
+  FoodTypeSelector: "food-type",
+  FoodAdminTypeSelector: "food-admin-type-list",
+
+  ImageChanged: "ImageChanged",
   FileUploaded: "FileUploaded",
-  UserChange: "UserChange",
+  BuyTriggered: "BuyTriggered",
+  UserChanged: "UserChanged",
   DataLoaded: "DataLoaded",
 
   ArticleItems: "ArticleItems",
@@ -11,8 +16,6 @@ export const Codes = {
   FoodItems: "FoodItems",
   FoodSources: "FoodSources",
   FoodTypes: "FoodTypes",
-  FoodTypeSelector: "food-type",
-  FoodAdminTypeSelector: "food-admin-type-list",
 
   Setting: "Setting",
   MemberItems: "MemberItems",

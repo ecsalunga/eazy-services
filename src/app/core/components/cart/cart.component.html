@@ -1,0 +1,15 @@
+<ng-container *ngIf="core.DL.State.Cart.Count > 0">
+    <div class="cart">
+        <div class="icon clickable" (click)="core.DL.State.Cart.Toggle()" *ngIf="!core.DL.State.Cart.IsExpanded; else expanded">
+            <mat-icon>shopping_cart</mat-icon>{{ core.DL.State.Cart.Count }}
+        </div>
+        <ng-template #expanded>
+            <div class="expanded clickable" (click)="core.DL.State.Cart.Toggle()">
+                <div>pending...</div>
+                <div>pending...</div>
+                <div>pending...</div>
+                <div>pending...</div>
+            </div>
+        </ng-template>
+    </div>
+</ng-container>

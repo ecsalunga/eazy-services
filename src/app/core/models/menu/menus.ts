@@ -5,13 +5,6 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
     let menus: { [key: string]: Array<MenuItem> } = {};
     menus["Home"] =  [
         {
-            Title: "Tester Page",
-            ImgSrc: "/assets/configuration.png",
-            Blurb: "Go to Utility page to test features blah blah.",
-            Type: MenuType.Module,
-            Selector: "app-tester"
-        },
-        {
             Title: "Food Services",
             ImgSrc: "/assets/food.jpg",
             Blurb: "Go to Food Module to access blah blah blah.",
@@ -43,14 +36,14 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
     menus["Food"] = [
         {
             Title: "Food Types",
-            ImgSrc: "/assets/food.jpg",
+            ImgSrc: "/assets/menu.jpg",
             Blurb: "View food by types.",
             Type: MenuType.Module,
             Selector: "food-type"
         },
         {
             Title: "Food Source",
-            ImgSrc: "/assets/food.jpg",
+            ImgSrc: "/assets/location.jpg",
             Blurb: "View food by source.",
             Type: MenuType.Module,
             Selector: "food-source"

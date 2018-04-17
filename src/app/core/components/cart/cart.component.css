@@ -1,0 +1,27 @@
+.cart {
+    z-index: 502;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: white;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-top: 10px;
+    padding-right: 5px;
+}
+
+.expanded {
+    width: 250px;
+    position: relative;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.55);
+    background-color: black;
+    padding: 10px;
+}

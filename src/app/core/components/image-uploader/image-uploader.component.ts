@@ -22,7 +22,7 @@ export class ImageUploaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this._sub = this.core.Changed.subscribe(update => {
-      if(update.Type == Codes.ImageChange) {
+      if(update.Type == Codes.ImageChanged) {
         this.Token.Procces(false);
         this.core.Upload(this.Token.BasePath + (<File>update.Data).name, update.Data);
       }

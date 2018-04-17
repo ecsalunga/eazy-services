@@ -19,7 +19,7 @@ export class EmmLibOutletComponent implements OnInit {
   constructor(private core: EmmLibCoreService) { }
 
   ImageChange() {
-    this.core.Publish(new Update(Codes.ImageChange, this._img.files[0]));
+    this.core.Publish(new Update(Codes.ImageChanged, this._img.files[0]));
   }
 
   ngOnInit() {

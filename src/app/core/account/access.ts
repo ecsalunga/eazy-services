@@ -102,7 +102,7 @@ export class Access {
             this._dl.State.IsFBUserLoaded = true;
 
             this.MapFBUser();
-            this._dl.Publish(new Update(Codes.UserChange, user));
+            this._dl.Publish(new Update(Codes.UserChanged, user));
         });
     }
 }

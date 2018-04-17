@@ -20,22 +20,28 @@ import { ImageUploaderComponent } from './components/image-uploader/image-upload
 import { MenuComponent } from './components/menu/menu.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { SellItemComponent } from './components/sell-item/sell-item.component';
+import { SellComponent } from './components/sell/sell.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   imports: [
     CommonModule,
     AngularFireModule.initializeApp(DataSetting.firebase), AngularFireAuthModule, AngularFireDatabaseModule,
-    MatSnackBarModule, MatProgressBarModule, MatIconModule
+    MatButtonModule, MatSnackBarModule, MatProgressBarModule, MatIconModule
   ],
   exports: [
-    EmmLibOutletComponent, ImageUploaderComponent, RatingComponent, MenuItemComponent,
+    EmmLibOutletComponent, ImageUploaderComponent, RatingComponent, MenuItemComponent, SellItemComponent, CartComponent,
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     MatButtonModule, MatGridListModule, MatFormFieldModule, 
     MatInputModule, MatIconModule, MatTooltipModule,
     MatGridListModule, MatProgressBarModule, MatSelectModule
   ],
-  declarations: [ EmmLibOutletComponent, ImageUploaderComponent, MenuComponent, RatingComponent, MenuItemComponent ],
-  entryComponents: [ MenuComponent ]
+  declarations: [ 
+    EmmLibOutletComponent, ImageUploaderComponent, MenuComponent, RatingComponent, MenuItemComponent, 
+    SellItemComponent, SellComponent, CartComponent 
+  ],
+  entryComponents: [ MenuComponent, SellComponent ]
 })
 export class EmmLibModule {
   static forRoot(): ModuleWithProviders {

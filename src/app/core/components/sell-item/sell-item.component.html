@@ -1,0 +1,11 @@
+<div class="item-selection">
+  <div class="header">
+    <img class="menu-img" [alt]="Sell.Blurb" [src]="Sell.ImgSrc">
+  </div>
+  <div class="contents">
+    <div class="sell-title">{{ Sell.Title }}</div>
+    <div class="sell-price">{{ CCY }} {{ Sell.Price | number:'1.2-2' }}</div>
+    <div class="blurb">{{ Sell.Blurb }}</div>
+    <div class="add"><button mat-raised-button color="primary" (click)="Process()" matTooltip="Add">Add</button></div>
+  </div>
+</div>

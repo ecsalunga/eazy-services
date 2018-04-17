@@ -80,6 +80,8 @@ export class EmmLibCoreService {
     }
 
     public Publish(update: Update) {
+        this.DL.State.Update(update);
+        
         if(this._updater != null)
             this._updater.next(update);
     }
