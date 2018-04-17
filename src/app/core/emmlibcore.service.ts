@@ -1,5 +1,5 @@
 import { Injectable, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
-import { Observable, Subscription, Subscriber } from 'rxjs/Rx';
+import { Observable, Subject } from 'rxjs/Rx';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -15,7 +15,7 @@ import { Access, Command } from './account';
 export class EmmLibCoreService {
     public Changed: Observable<Update>;
 
-    private _updater: Subscriber<Update>;
+    private _updater: Subject<Update>;
     private _loader: LoadHelper;
     private _stamp: StampHelper;
     private _utility: UtilityHelper;
@@ -27,7 +27,8 @@ export class EmmLibCoreService {
     private _fireStorage: firebase.storage.Reference = firebase.storage().ref();
 
     constructor(private resolver: ComponentFactoryResolver, private fireDB: AngularFireDatabase, fireAuth: AngularFireAuth, snackBar: MatSnackBar) { 
-        this.Changed = new Observable(obs => { this._updater = obs; });
+        this._updater = new Subject<Update>();
+        this.Changed = this._updater.asObservable();
 
         this._loader = new LoadHelper(resolver);
         this._stamp = new StampHelper();

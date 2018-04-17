@@ -28,7 +28,7 @@ import { CartComponent } from './components/cart/cart.component';
   imports: [
     CommonModule,
     AngularFireModule.initializeApp(DataSetting.firebase), AngularFireAuthModule, AngularFireDatabaseModule,
-    MatButtonModule, MatSnackBarModule, MatProgressBarModule, MatIconModule
+    MatButtonModule, MatSnackBarModule, MatProgressBarModule, MatIconModule, MatTooltipModule
   ],
   exports: [
     EmmLibOutletComponent, ImageUploaderComponent, RatingComponent, MenuItemComponent, SellItemComponent, CartComponent,

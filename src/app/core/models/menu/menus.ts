@@ -27,7 +27,7 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
         },
         {
             Title: "Settings",
-            ImgSrc: "/assets/configuration.png",
+            ImgSrc: "/assets/setting.jpg",
             Blurb: "Go to System settings blah blah blah.",
             Type: MenuType.Module,
             Selector: "app-tester"
@@ -50,7 +50,7 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
         },
         {
             Title: "Home",
-            ImgSrc: "/assets/home.png",
+            ImgSrc: "/assets/home.jpg",
             Blurb: "Go to Main menu blah blah.",
             Type: MenuType.Menu,
             Selector: "Home"
@@ -73,7 +73,7 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
         },
         {
             Title: "Home",
-            ImgSrc: "/assets/home.png",
+            ImgSrc: "/assets/home.jpg",
             Blurb: "Go to Main menu blah blah.",
             Type: MenuType.Menu,
             Selector: "Home"
@@ -96,7 +96,7 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
         },
         {
             Title: "Home",
-            ImgSrc: "/assets/home.png",
+            ImgSrc: "/assets/home.jpg",
             Blurb: "Go to Main menu blah blah.",
             Type: MenuType.Menu,
             Selector: "Home"

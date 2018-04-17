@@ -1,5 +1,4 @@
 .cart {
-    width: 100%;
     z-index: 502;
     position: absolute;
     top: 0px;
@@ -27,7 +26,7 @@
 }
 
 @media (min-width: 550px) {
-    .expanded, .cart { width: 550px; }
+    .expanded { width: 550px; }
 }
 
 .expanded table {

@@ -25,7 +25,6 @@ export class State {
 
     AccessMode: AccessMode;
     SessionCode: number;
-    ControlCode: number = 0;
 
     FoodItems: Array<FoodItem>;
 

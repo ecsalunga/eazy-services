@@ -1,5 +1,5 @@
 <ng-container *ngIf="core.DL.State.Cart.Count > 0">
-    <div class="cart">
+    <span class="cart">
         <div class="icon clickable" (click)="core.DL.State.Cart.Toggle()" *ngIf="!core.DL.State.Cart.IsExpanded; else expanded">
             <mat-icon>shopping_cart</mat-icon>{{ core.DL.State.Cart.Count }}
         </div>
@@ -14,7 +14,7 @@
                             <th>
                                 Price / Quantity
                             </th>
-                            <th>
+                            <th class="right">
                                 Total
                             </th>
                             <th>
@@ -25,10 +25,10 @@
                         <tr>
                             <td>{{ item.Title }}</td>
                             <td>{{ item.Price | number:'1.2-2' }} / {{ item.Quantity }}</td>
-                            <td>{{ item.Price * item.Quantity | number:'1.2-2'}}</td>
+                            <td class="right">{{ item.Price * item.Quantity | number:'1.2-2'}}</td>
                             <td class="right">
                                 <button mat-mini-fab (click)="Remove(item)" color="warn" matTooltip="Remove">
-                                    <mat-icon>remove_shopping_cart</mat-icon>
+                                    <mat-icon>delete</mat-icon>
                                 </button>
                             </td>
                         </tr>
@@ -37,20 +37,20 @@
                         <td>
                             Total
                         </td>
-                        <td></td>
-                        <td>{{ core.DL.State.Cart.Total | number:'1.2-2'}}</td>
+                        <td>{{ core.DL.State.Cart.Count }}</td>
+                        <td class="right">{{ core.DL.State.Cart.Total | number:'1.2-2'}}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <button mat-raised-button color="primary" (click)="core.DL.State.Cart.Toggle()" matTooltip="Cancel">Cancel</button>
+                            <button mat-raised-button color="primary" (click)="core.DL.State.Cart.Toggle()" matTooltip="OK">OK</button>
                         </td>
-                        <td colspan="2">
+                        <td colspan="2" class="right">
                             <button mat-raised-button color="primary" (click)="core.DL.State.Cart.Checkout()" matTooltip="Checkout">Checkout</button>
                         </td>
                     </tr>
                 </table>
             </div>
         </ng-template>
-    </div>
+    </span>
 </ng-container>

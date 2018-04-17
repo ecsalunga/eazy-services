@@ -23,6 +23,7 @@ export class SellComponent implements OnInit {
 
     this.core.DL.State.Cart.Toggle(false);
     this.core.Publish(new Update(Codes.BuyTriggered, buy));
+    this.core.Display(buy.Title + " Added.");
   }
 
   ngOnInit() { }

@@ -50,11 +50,4 @@ export class AppComponent {
   public get LoaderState(): string {
     return this.core.DL.State.LoaderState;
   }
-
-  public get Control(): string {
-    if(this.core.DL.State.ControlCode > 0)
-      return `( Control: ${this.core.DL.State.ControlCode} )`;
-    else
-      return "";
-  }
 }

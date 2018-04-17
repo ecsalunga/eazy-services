@@ -14,6 +14,7 @@ export class CartComponent implements OnInit {
   
   Remove(item: SellItem) {
     this.core.Publish(new Update(Codes.RemoveTriggered, item));
+    this.core.Display(item.Title + " Removed.");
   }
 
   ngOnInit() { }
