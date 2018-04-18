@@ -12,9 +12,6 @@
           Source
         </th>
         <th>
-          Rating
-        </th>
-        <th>
           Price
         </th>
         <th class="actions right">
@@ -32,9 +29,7 @@
         </td>
         <td>
           {{ item.SourceName }}
-        </td>
-        <td>
-          <emm-rating [Rating]="GetRating(item)"></emm-rating>
+          <div><emm-rating [Rating]="GetRating(item)"></emm-rating></div>
         </td>
         <td>
           {{ item.PriceSell | number:'1.2-2'}}

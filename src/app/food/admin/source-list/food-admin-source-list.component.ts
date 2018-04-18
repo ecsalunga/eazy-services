@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmmLibCoreService, UploadToken, FoodSource } from '../../../core';
+import { EmmLibCoreService, UploadToken, FoodSource, RatingToken } from '../../../core';
 
 @Component({
   selector: 'food-admin-source-list',
@@ -20,6 +20,10 @@ export class FoodAdminSourceListComponent implements OnInit {
     this.core.DL.State.ReturnSelector = "food-admin-source-list";
     this.core.DL.State.FoodSource = item;
     this.core.Load("food-admin-item-list");
+  }
+
+  GetRating(item: FoodSource): RatingToken {
+    return new RatingToken(item.Rating, false);
   }
 
   Add() {

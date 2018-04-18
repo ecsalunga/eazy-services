@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
-import { EmmLibCoreService, UploadToken, FoodSource } from '../../../core';
+import { EmmLibCoreService, UploadToken, FoodSource, RatingToken } from '../../../core';
 
 @Component({
   selector: 'food-admin-source',
@@ -14,17 +14,22 @@ export class FoodAdminSourceComponent implements OnInit {
   ContactFC = new FormControl('', [Validators.required]);
 
   Model: FoodSource;
+  Rating: RatingToken;
   Token: UploadToken;
 
   constructor(private core: EmmLibCoreService) {
     this.core.DL.State.Title = "Food Admin Source";
     this.Model = this.core.DL.State.FoodSource;
+    this.Rating = new RatingToken(this.Model.Rating);
     this.Token = new UploadToken("/images/food/", this.Model.ImageUrl);
   }
 
   public Save() {
     if(this.Token.IsDirty)
       this.Model.ImageUrl = this.Token.DownloadUrl;
+
+    if(this.Rating.IsDirty)
+      this.Model.Rating = this.Rating.Value;
 
     this.core.DA.FoodSources.Save(this.Model);
     this.transfer();
