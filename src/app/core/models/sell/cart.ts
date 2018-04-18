@@ -1,3 +1,4 @@
+import { DelayCall } from '../../decorators';
 import { SellItem } from './sellitem';
 import { Update } from '../update';
 import { Codes } from '../codes';
@@ -9,9 +10,24 @@ export class Cart {
     IsExpanded: boolean;
 
     constructor() {
-        this.Items = new Array<SellItem>();
+        this.initItems();
         this.Count = 0;
         this.Total = 0;
+    }
+
+    private initItems() {
+        let cart = localStorage.getItem("cart");
+        if(cart == null || cart == "")
+            this.Items = new Array<SellItem>();
+        else {
+            this.Items = JSON.parse(cart);
+            this.initState();
+        }
+    }
+
+    private storeCart() {
+        let cart = JSON.stringify(this.Items);
+        localStorage.setItem("cart", cart);
     }
 
     public Toggle(isExpanded?: boolean) {
@@ -38,7 +54,16 @@ export class Cart {
             this.Items = this.Items.filter(item => item.ItemKey != sell.ItemKey);
 
         this.Items.sort((item1, item2) => item1.Title.localeCompare(item2.Title));
+        this.updateStats();
+        this.storeCart();
+    }
 
+    @DelayCall(1000)
+    private initState() {
+        this.updateStats();
+    }
+
+    private updateStats() {
         let count = 0;
         let total = 0;
 

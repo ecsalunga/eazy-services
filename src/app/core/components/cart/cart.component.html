@@ -11,7 +11,7 @@
                             <th>
                                 Item
                             </th>
-                            <th>
+                            <th class="right">
                                 Price / Quantity
                             </th>
                             <th class="right">
@@ -24,7 +24,7 @@
                     <ng-container *ngFor="let item of core.DL.State.Cart.Items">
                         <tr>
                             <td>{{ item.Title }}</td>
-                            <td>{{ item.Price | number:'1.2-2' }} / {{ item.Quantity }}</td>
+                            <td class="right">{{ item.Price | number:'1.2-2' }} / {{ item.Quantity }}</td>
                             <td class="right">{{ item.Price * item.Quantity | number:'1.2-2'}}</td>
                             <td class="right">
                                 <button mat-mini-fab (click)="Remove(item)" color="warn" matTooltip="Remove">
@@ -37,7 +37,7 @@
                         <td>
                             Total
                         </td>
-                        <td>{{ core.DL.State.Cart.Count }}</td>
+                        <td class="right">{{ core.DL.State.Cart.Count }}</td>
                         <td class="right">{{ core.DL.State.Cart.Total | number:'1.2-2'}}</td>
                         <td></td>
                     </tr>
