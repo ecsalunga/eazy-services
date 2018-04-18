@@ -22,8 +22,8 @@ export class FoodAdminSourceListComponent implements OnInit {
     this.core.Load("food-admin-item-list");
   }
 
-  GetRating(item: FoodSource): RatingToken {
-    return new RatingToken(item.Rating, false);
+  GetRating(rating: number): RatingToken {
+    return new RatingToken(rating, false);
   }
 
   Add() {

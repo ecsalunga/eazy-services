@@ -22,8 +22,8 @@ export class FoodAdminItemListComponent implements OnInit {
     this.core.DA.FoodItems.Save(item);
   }
 
-  GetRating(item: FoodItem): RatingToken {
-    return new RatingToken(item.Rating, false);
+  GetRating(rating: number): RatingToken {
+    return new RatingToken(rating, false);
   }
 
   Add() {

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { EmmLibCoreService } from '../../emmlibcore.service';
-import { SellItem } from '../../models';
+import { SellItem, RatingToken } from '../../models';
 
 @Component({
   selector: 'sell-item',
@@ -18,6 +18,10 @@ export class SellItemComponent implements OnInit {
   OnClicked = new EventEmitter<SellItem>();
 
   constructor(public core: EmmLibCoreService) { }
+
+  GetRating(): RatingToken {
+    return new RatingToken(this.Sell.Rating, false);
+  }
 
   Process() {
     this.OnClicked.emit(this.Sell);

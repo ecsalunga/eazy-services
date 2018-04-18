@@ -23,6 +23,7 @@ export class FoodTypeComponent implements OnInit {
       let sell = new SellItem(food.key, food.SourceName, food.PriceSell);
       sell.ImgSrc = food.ImageUrl;
       sell.Blurb = food.Blurb;
+      sell.Rating = food.Rating;
       sell.Type = ItemType.Food;
       sellItems.push(sell);
     });

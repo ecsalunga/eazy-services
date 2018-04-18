@@ -10,6 +10,7 @@ export class SellItem {
     
     Price: number;
     Quantity: number;
+    Rating: number;
 
     constructor(itemKey: string, title: string, price: number) {
         this.ItemKey = itemKey;
