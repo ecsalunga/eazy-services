@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Rx';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { EmmLibCoreService, FoodSource, Menus, Codes, DelayCall } from './core';
@@ -19,15 +20,10 @@ import { EmmLibCoreService, FoodSource, Menus, Codes, DelayCall } from './core';
     ])
   ]
 })
-export class AppComponent {
-  constructor(private core: EmmLibCoreService) {
-    this.init();
-  }
+export class AppComponent implements OnInit {
+  private _sub: Subscription;
 
-  @DelayCall(100)
-  private init() {
-    this.Home();
-  }
+  constructor(public core: EmmLibCoreService) { }
 
   public Home() {
     this.core.DL.State.Title = Codes.Home;
@@ -43,11 +39,19 @@ export class AppComponent {
     return (this.core.DL.State.CurrentSelector != Codes.MenuSelector);
   }
 
-  public get Title(): string {
-    return this.core.DL.State.Title;
+  ngOnInit() {
+    if (this.core.IsCoreLoaded)
+      this.init();
+    else {
+      this._sub = this.core.Changed.subscribe(update => {
+        this.init();
+        this._sub.unsubscribe();
+      });
+    }
   }
 
-  public get LoaderState(): string {
-    return this.core.DL.State.LoaderState;
+  @DelayCall(500)
+  private init() {
+    this.Home();
   }
 }

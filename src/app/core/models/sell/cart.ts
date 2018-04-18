@@ -58,7 +58,7 @@ export class Cart {
         this.storeCart();
     }
 
-    @DelayCall(1000)
+    @DelayCall(500)
     private initState() {
         this.updateStats();
     }

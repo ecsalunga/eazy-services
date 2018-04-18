@@ -15,6 +15,7 @@ import { Access, Command } from './account';
 export class EmmLibCoreService {
     public Changed: Observable<Update>;
 
+    private _isCoreLoaded: boolean;
     private _updater: Subject<Update>;
     private _loader: LoadHelper;
     private _stamp: StampHelper;
@@ -44,9 +45,16 @@ export class EmmLibCoreService {
         this.init();
     }
 
+    public get IsCoreLoaded(): boolean {
+        return this._isCoreLoaded;
+    }
+
     public SetComponents(viewChild: ViewContainerRef, imageSelector: HTMLInputElement) {
         this._loader.SetMainContainer(viewChild);
         this._loader.SetImageSelector(imageSelector);
+
+        this._isCoreLoaded = true;
+        this.Publish(new Update(Codes.CoreLoaded, this._isCoreLoaded));
     }
 
     public Upload(path: string, file: File) {

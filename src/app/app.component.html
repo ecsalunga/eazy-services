@@ -12,9 +12,17 @@
     <div class="vBigSpacer"></div>
     <div class="window">
         <div class="header">
-            <div class="title"><div class="back-menu" *ngIf="HasBackToMenu()"><div class="menu" (click)="BackToMenu()" matTooltip="Back to Menu">Back</div><mat-icon>keyboard_arrow_left</mat-icon></div>{{ Title }}</div>
+            <div class="title">
+                <ng-container *ngIf="HasBackToMenu()">
+                    <div class="back-menu">
+                        <div class="menu" (click)="BackToMenu()" matTooltip="Back to Menu">Back</div>
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                    </div>
+                </ng-container>
+                {{ core.DL.State.Title }}
+            </div>
         </div>
-        <div class="content" [@loaderState]="LoaderState">
+        <div class="content" [@loaderState]="core.DL.State.LoaderState">
             <emmlib-outlet></emmlib-outlet>
         </div>
     </div>

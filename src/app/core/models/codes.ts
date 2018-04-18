@@ -5,6 +5,7 @@ export const Codes = {
   FoodTypeSelector: "food-type",
   FoodAdminTypeSelector: "food-admin-type-list",
 
+  CoreLoaded: "CoreLoaded",
   ImageChanged: "ImageChanged",
   FileUploaded: "FileUploaded",
   BuyTriggered: "BuyTriggered",
