@@ -41,7 +41,7 @@ export class FoodSourceComponent implements OnInit {
       item.ImgSrc = source.ImageUrl;
       item.Title = source.Name;
       item.Blurb = source.Blurb;
-
+      item.Rating = source.Rating;
       this.Items.push(item);
     });
   }

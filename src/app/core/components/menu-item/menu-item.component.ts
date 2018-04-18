@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { EmmLibCoreService } from '../../emmlibcore.service';
-import { MenuItem } from '../../models';
+import { MenuItem, RatingToken } from '../../models';
 
 @Component({
   selector: 'menu-item',
@@ -16,6 +16,10 @@ export class MenuItemComponent implements OnInit {
   OnClicked = new EventEmitter<MenuItem>();
 
   constructor(public core: EmmLibCoreService) { }
+
+  GetRating(): RatingToken {
+    return new RatingToken(this.Menu.Rating, false);
+  }
 
   Process() {
     this.OnClicked.emit(this.Menu);

@@ -4,6 +4,7 @@
   </div>
   <div class="contents">
     <div class="menu-title">{{ Menu.Title }}</div>
+    <div class="menu-rating" *ngIf="Menu.Rating != null"><emm-rating [Rating]="GetRating()"></emm-rating></div>
     <div class="blurb">{{ Menu.Blurb }}</div>
   </div>
 </div>
