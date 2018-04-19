@@ -4,7 +4,7 @@ import { EmmLibCoreService } from '../../emmlibcore.service';
 import { Update, Codes, SellItem, AccessMode } from '../../models';
 
 @Component({
-  selector: 'emm-cart',
+  selector: 'cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })

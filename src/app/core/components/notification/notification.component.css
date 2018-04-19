@@ -1,0 +1,13 @@
+.notification {
+    z-index: 502;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: white;
+}
+
+.profile {
+    height: 20px;
+    width: 20px;
+    background-color: red;
+}

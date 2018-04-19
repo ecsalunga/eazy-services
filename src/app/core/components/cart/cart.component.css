@@ -1,21 +1,13 @@
-.cart {
-    z-index: 502;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    color: white;
-}
-
 .clickable {
     cursor: pointer;
 }
 
 .icon {
+    position: relative;
     align-items: center;
     display: inline-flex;
     vertical-align: middle;
     margin-top: 10px;
-    padding-right: 5px;
 }
 
 .expanded {
