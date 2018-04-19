@@ -5,51 +5,57 @@
         </div>
         <ng-template #expanded>
             <div class="expanded">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>
-                                Item
-                            </th>
-                            <th class="right">
-                                Price / Quantity
-                            </th>
-                            <th class="right">
+                <div class="list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Item
+                                </th>
+                                <th class="right">
+                                    Price / Quantity
+                                </th>
+                                <th class="right">
+                                    Total
+                                </th>
+                                <th>
+                                </th>
+                            </tr>
+                        </thead>
+                        <ng-container *ngFor="let item of core.DL.State.Cart.Items">
+                            <tr>
+                                <td>{{ item.Title }}</td>
+                                <td class="right">{{ item.Price | number:'1.2-2' }} / {{ item.Quantity }}</td>
+                                <td class="right">{{ item.Price * item.Quantity | number:'1.2-2'}}</td>
+                                <td class="right">
+                                    <button mat-mini-fab (click)="Remove(item)" color="warn" matTooltip="Remove">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </ng-container>
+                        <tr class="total">
+                            <td>
                                 Total
-                            </th>
-                            <th>
-                            </th>
+                            </td>
+                            <td class="right">{{ core.DL.State.Cart.Count }}</td>
+                            <td class="right">{{ core.DL.State.Cart.Total | number:'1.2-2'}}</td>
+                            <td></td>
                         </tr>
-                    </thead>
-                    <ng-container *ngFor="let item of core.DL.State.Cart.Items">
+                    </table>
+                </div>
+                <div class="actions">
+                    <table>
                         <tr>
-                            <td>{{ item.Title }}</td>
-                            <td class="right">{{ item.Price | number:'1.2-2' }} / {{ item.Quantity }}</td>
-                            <td class="right">{{ item.Price * item.Quantity | number:'1.2-2'}}</td>
+                            <td>
+                                <button mat-raised-button color="primary" (click)="core.DL.State.Cart.Toggle()" matTooltip="OK">OK</button>
+                            </td>
                             <td class="right">
-                                <button mat-mini-fab (click)="Remove(item)" color="warn" matTooltip="Remove">
-                                    <mat-icon>delete</mat-icon>
-                                </button>
+                                <button mat-raised-button color="primary" (click)="core.DL.State.Cart.Checkout()" matTooltip="Checkout">Checkout</button>
                             </td>
                         </tr>
-                    </ng-container>
-                    <tr class="total">
-                        <td>
-                            Total
-                        </td>
-                        <td class="right">{{ core.DL.State.Cart.Count }}</td>
-                        <td class="right">{{ core.DL.State.Cart.Total | number:'1.2-2'}}</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <button mat-raised-button color="primary" (click)="core.DL.State.Cart.Toggle()" matTooltip="OK">OK</button>
-                        </td>
-                        <td colspan="2" class="right">
-                            <button mat-raised-button color="primary" (click)="core.DL.State.Cart.Checkout()" matTooltip="Checkout">Checkout</button>
-                        </td>
-                    </tr>
-                </table>
+                    </table>
+                </div>
             </div>
         </ng-template>
     </span>
