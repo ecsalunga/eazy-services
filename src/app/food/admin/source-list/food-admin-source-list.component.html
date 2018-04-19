@@ -6,9 +6,6 @@
           Name
         </th>
         <th>
-          Address
-        </th>
-        <th>
           Contact
         </th>
         <th class="actions right">
@@ -21,9 +18,6 @@
         <td>
           {{ item.Name }}
           <div><emm-rating [Rating]="GetRating(item.Rating)"></emm-rating></div>
-        </td>
-        <td>
-          {{ item.Address }}
         </td>
         <td>
           <a href="tel:{{ item.Contact }}">{{ item.Contact }}</a> 
