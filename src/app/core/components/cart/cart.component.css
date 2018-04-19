@@ -23,6 +23,8 @@
     position: relative;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.55);
     background-color: black;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 @media (min-width: 550px) {

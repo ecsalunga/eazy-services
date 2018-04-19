@@ -16,8 +16,8 @@
         </th>
       </tr>
     </thead>
-    <ng-container *ngFor="let item of core.DL.FoodSources">
-      <tr>
+    <ng-container *ngFor="let item of core.DL.FoodSources; let i = index;">
+      <tr class="{{i % 2 == 0 ? '' : 'alt' }}">
         <td>
           {{ item.Name }}
           <div><emm-rating [Rating]="GetRating(item.Rating)"></emm-rating></div>

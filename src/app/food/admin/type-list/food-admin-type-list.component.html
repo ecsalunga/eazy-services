@@ -13,8 +13,8 @@
         </th>
       </tr>
     </thead>
-    <ng-container *ngFor="let item of core.DL.FoodTypes">
-      <tr>
+    <ng-container *ngFor="let item of core.DL.FoodTypes; let i = index;">
+      <tr class="{{i % 2 == 0 ? '' : 'alt' }}">
         <td>
           {{ item.Name }}
         </td>
