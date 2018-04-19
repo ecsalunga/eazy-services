@@ -1,7 +1,8 @@
 import { FoodSource, FoodType, FoodItem } from './food';
 import { MenuItem, Menus } from './menu';
 import { SellItem, Cart } from './sell';
-import { AccessMode } from './user';
+import { AccessMode, UserItem } from './user';
+import { MemberItem } from './member';
 import { Codes } from './codes';
 import { Update } from './update';
 
@@ -22,7 +23,7 @@ export class State {
     IsFBUserLoaded: boolean = false;
     IsMemberLoaded: boolean = false;
     IsUserLoaded: boolean = false;
-
+ 
     AccessMode: AccessMode;
     SessionCode: number;
 
@@ -31,6 +32,9 @@ export class State {
     private _foodItem: FoodItem;
     private _foodSource: FoodSource;
     private _foodType: FoodType;
+
+    private _user: UserItem;
+    private _member: MemberItem;
 
     constructor() {
         this.Title = Codes.Home;
@@ -69,5 +73,21 @@ export class State {
 
     public set FoodItem(value: FoodItem) {
         this._foodItem = value;
+    }
+
+    public get User(): UserItem {
+        return this._user;
+    }
+
+    public set User(value: UserItem) {
+        this._user = value;
+    }
+
+    public get Member(): MemberItem {
+        return this._member;
+    }
+
+    public set Member(value: MemberItem) {
+        this._member = value;
     }
 }

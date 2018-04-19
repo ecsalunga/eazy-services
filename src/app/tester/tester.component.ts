@@ -34,8 +34,12 @@ export class TesterComponent {
     this.core.Execute(cmd);
   }
 
-  LogIn() {
+  Login() {
     this.core.LogInWithFacebook();
+  }
+
+  Logoff() {
+    this.core.LogOut();
   }
 
   @DelayCall(3000)

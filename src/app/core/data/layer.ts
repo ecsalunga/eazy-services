@@ -1,7 +1,7 @@
 import { User } from '@firebase/auth-types';
 import { Observable, Subject } from 'rxjs/Rx';
 
-import { Setting, Update, Codes, State, UserItem, CommandItem } from '../models';
+import { Setting, Update, Codes, UserItem, State, CommandItem } from '../models';
 import { MemberItem } from '../models/member';
 import { ArticleItem } from '../models/article';
 import { FoodItem, FoodType, FoodSource } from '../models/food';
@@ -11,9 +11,6 @@ export class DataLayer {
     private _updater: Subject<Update>;
 
     FBUser: User;
-    Member: MemberItem;
-    User: UserItem;
-
     Setting: Setting;
     State: State;
 
