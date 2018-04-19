@@ -3,11 +3,11 @@
 }
 
 .icon {
-    position: relative;
     align-items: center;
     display: inline-flex;
     vertical-align: middle;
     margin-top: 10px;
+    padding-right: 5px;
 }
 
 .expanded {
