@@ -13,7 +13,7 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
         },
         {
             Title: "Food Admin",
-            ImgSrc: "/assets/food.jpg",
+            ImgSrc: "/assets/food-admin.jpg",
             Blurb: "Go to Food administration page blah blah blah.",
             Type: MenuType.Menu,
             Selector: "Food-Admin"
@@ -58,18 +58,18 @@ function MenuConfiguration(): { [key: string]: Array<MenuItem> } {
     ];
     menus["Food-Admin"] = [
         {
-            Title: "Food Sources",
-            ImgSrc: "/assets/food.jpg",
-            Blurb: "View list of food sources.",
-            Type: MenuType.Module,
-            Selector: "food-admin-source-list"
-        },
-        {
             Title: "Food Types",
-            ImgSrc: "/assets/food.jpg",
+            ImgSrc: "/assets/menu.jpg",
             Blurb: "View list of food types.",
             Type: MenuType.Module,
             Selector: "food-admin-type-list"
+        },
+        {
+            Title: "Food Sources",
+            ImgSrc: "/assets/location.jpg",
+            Blurb: "View list of food sources.",
+            Type: MenuType.Module,
+            Selector: "food-admin-source-list"
         },
         {
             Title: "Home",

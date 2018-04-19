@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { EmmLibCoreService } from '../../emmlibcore.service';
+
 @Component({
   selector: 'notification',
   templateUrl: './notification.component.html',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(public core: EmmLibCoreService) {
+    //core.DL.State.PhotoUrl
   }
 
+  ngOnInit() { }
 }

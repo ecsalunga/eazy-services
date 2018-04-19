@@ -23,5 +23,7 @@ export const Codes = {
   MemberItems: "MemberItems",
   UserItems: "UserItems",
 
-  MaxRate: 5
+  MaxRate: 5,
+  DefaultImage: "/assets/default.jpg",
+  DefaultPhoto: "/assets/profile.png"
 };

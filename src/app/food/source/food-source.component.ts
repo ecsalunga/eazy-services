@@ -17,7 +17,7 @@ export class FoodSourceComponent implements OnInit {
 
   Process(item: MenuItem) {
     this.core.DL.State.ReturnSelector = "food-source";
-    let items = this.core.DL.FoodItems.filter(food => food.SourceKey == item.Selector);
+    let items = this.core.DL.FoodItems.filter(food => food.SourceKey == item.Selector && food.IsAvailable);
     let sellItems = Array<SellItem>();
     items.forEach(food => {
       let sell = new SellItem(food.key, food.TypeName, food.PriceSell);
@@ -36,13 +36,15 @@ export class FoodSourceComponent implements OnInit {
 
   ngOnInit() {
     this.core.DL.FoodSources.forEach(source => {
-      let item = new MenuItem();
-      item.Selector = source.key;
-      item.ImgSrc = source.ImageUrl;
-      item.Title = source.Name;
-      item.Blurb = source.Blurb;
-      item.Rating = source.Rating;
-      this.Items.push(item);
+      if(this.core.DL.FoodItems.some(item => item.SourceKey == source.key && item.IsAvailable)) {
+        let item = new MenuItem();
+        item.Selector = source.key;
+        item.ImgSrc = source.ImageUrl;
+        item.Title = source.Name;
+        item.Blurb = source.Blurb;
+        item.Rating = source.Rating;
+        this.Items.push(item);
+      }
     });
   }
 

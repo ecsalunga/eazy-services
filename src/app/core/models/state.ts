@@ -9,7 +9,6 @@ import { Update } from './update';
 export class State {
     Title: string;
     LoaderState: string;
-    DefaultImage: string;
     ReturnSelector: string;
     CurrentSelector: string;
 
@@ -23,7 +22,8 @@ export class State {
     IsFBUserLoaded: boolean = false;
     IsMemberLoaded: boolean = false;
     IsUserLoaded: boolean = false;
- 
+    PhotoUrl: string;
+
     AccessMode: AccessMode;
     SessionCode: number;
 
@@ -39,9 +39,9 @@ export class State {
     constructor() {
         this.Title = Codes.Home;
         this.Menu = Codes.Home;
+        this.PhotoUrl = Codes.DefaultPhoto;
         this.MenuItems = Menus[ Codes.Home ];
         this.AccessMode = AccessMode.Guest;
-        this.DefaultImage = "/assets/default.jpeg";
         this.Cart = new Cart();
     }
 

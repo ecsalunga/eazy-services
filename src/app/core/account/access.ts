@@ -58,7 +58,7 @@ export class Access {
                 this._dl.State.AccessMode = AccessMode.User;
 
                 let user = this._dl.UserItems.find(m => m.UID == this._dl.FBUser.uid);
-                this.updateLogin(user);
+                user.ActionDate = this._stamp.Timestamp;
                 this._dl.State.User = user;
 
                 this._da.UserItems.Save(user);
@@ -67,7 +67,7 @@ export class Access {
                 this._dl.State.AccessMode = AccessMode.Member;
 
                 let member = this._dl.MemberItems.find(m => m.UID == this._dl.FBUser.uid);
-                this.updateLogin(member);
+                member.ActionDate = this._stamp.Timestamp;
                 this._dl.State.Member = member;
 
                 this._da.MemberItems.Save(member);
@@ -82,17 +82,12 @@ export class Access {
             member.UID = this._dl.FBUser.uid;
             member.Name = this._dl.FBUser.displayName;
             member.Email = this._dl.FBUser.email;
-            member.ImageURL = this._dl.FBUser.photoURL;
+            member.ImageURL = Codes.DefaultPhoto;
             member.Contact1 = this._dl.FBUser.phoneNumber;
             member.JoinDate = this._stamp.Timestamp;
             member.ActionDate = this._stamp.Timestamp;
             this._da.MemberItems.Save(member);
         }
-    }
-
-    private updateLogin(item: UserItem | MemberItem) {
-        item.ActionDate = this._stamp.Timestamp;
-        item.ImageURL = this._dl.FBUser.photoURL;
     }
 
     private init() {
@@ -110,9 +105,10 @@ export class Access {
 
         this._fireAuth.authState.subscribe(user => {
             this._dl.FBUser = user;
-
+         
             if (user == null) {
                 this._dl.State.AccessMode = AccessMode.Guest;
+                this._dl.State.PhotoUrl = Codes.DefaultPhoto;
                 this._dl.State.IsFBUserLoaded = false;
             }
             else {

@@ -17,7 +17,7 @@ export class FoodTypeComponent implements OnInit {
 
   Process(item: MenuItem) {
     this.core.DL.State.ReturnSelector = "food-type";
-    let items = this.core.DL.FoodItems.filter(food => food.TypeKey == item.Selector);
+    let items = this.core.DL.FoodItems.filter(food => food.TypeKey == item.Selector && food.IsAvailable);
     let sellItems = Array<SellItem>();
     items.forEach(food => {
       let sell = new SellItem(food.key, food.SourceName, food.PriceSell);
@@ -36,6 +36,7 @@ export class FoodTypeComponent implements OnInit {
 
   ngOnInit() {
     this.core.DL.FoodTypes.forEach(type => {
+      if(this.core.DL.FoodItems.some(item => item.TypeKey == type.key && item.IsAvailable)) {
         let item = new MenuItem();
         item.Selector = type.key;
         item.ImgSrc = type.ImageUrl;
@@ -43,6 +44,7 @@ export class FoodTypeComponent implements OnInit {
         item.Blurb = `( ${type.Category} ) ` + type.Blurb;
 
         this.Items.push(item);
+      }
     });
   }
 }
