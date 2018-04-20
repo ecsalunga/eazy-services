@@ -15,3 +15,17 @@
     cursor: pointer;
     color: #2196f3;
 }
+
+.brand {
+    align-items: center;
+    display: inline-flex;
+    vertical-align: middle;
+    color: gray;
+}
+
+.brand a {
+    text-decoration: none; 
+    margin-left: 5px;
+    font-weight: bold;
+    color: gray;
+}
