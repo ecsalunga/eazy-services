@@ -1,5 +1,7 @@
 .header-item {
     cursor: pointer;
+    top: 0;
+    margin-top: 10px;
 }
 
 .back-menu, .menu {

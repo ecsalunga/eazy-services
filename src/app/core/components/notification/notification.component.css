@@ -1,8 +1,7 @@
 .notification {
     z-index: 502;
-    position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    float: right;
     color: white;
     align-items: center;
     display: inline-flex;
