@@ -18,6 +18,10 @@
     padding: 10px;
 }
 
+.alt {
+    background-color: #171717;
+}
+
 .list {
     max-height: 70vh;
     overflow-y: auto;

@@ -21,8 +21,8 @@
                             </th>
                         </tr>
                     </thead>
-                    <ng-container *ngFor="let item of core.DL.State.Cart.Items">
-                        <tr>
+                    <ng-container *ngFor="let item of core.DL.State.Cart.Items; let i = index;">
+                        <tr class="{{ i % 2 == 0 ? 'alt': ''}}">
                             <td>{{ item.Title }}</td>
                             <td class="right">{{ item.Price | number:'1.2-2' }} / {{ item.Quantity }}</td>
                             <td class="right">{{ item.Price * item.Quantity | number:'1.2-2'}}</td>
