@@ -17,6 +17,7 @@
 }
 
 .brand {
+    padding: 10px;
     align-items: center;
     display: inline-flex;
     vertical-align: middle;
