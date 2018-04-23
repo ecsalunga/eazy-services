@@ -1,4 +1,4 @@
-<ng-container *ngIf="core.DL.State.Cart.Count > 0">
+<ng-container *ngIf="core.DL.State.Cart.Count > 0 && IsNotCheckout()">
     <div class="icon clickable" (click)="core.DL.State.Cart.Toggle()" *ngIf="!core.DL.State.Cart.IsExpanded; else expanded">
         <mat-icon>shopping_cart</mat-icon>{{ core.DL.State.Cart.Count }}
     </div>
@@ -51,7 +51,7 @@
                         </td>
                         <td class="right">
                             <button *ngIf="!CanCheckout()" mat-raised-button color="primary" (click)="core.LogInWithFacebook()" matTooltip="Login">Login</button>
-                            <button *ngIf="CanCheckout()" mat-raised-button color="primary" (click)="core.DL.State.Cart.Checkout()" matTooltip="Checkout">Checkout</button>
+                            <button *ngIf="CanCheckout()" mat-raised-button color="primary" (click)="Checkout()" matTooltip="Checkout">Checkout</button>
                         </td>
                     </tr>
                 </table>

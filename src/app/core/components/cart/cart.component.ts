@@ -17,8 +17,17 @@ export class CartComponent implements OnInit {
     this.core.Display(item.Title + " Removed.");
   }
 
+  IsNotCheckout(): boolean {
+    return this.core.DL.State.CurrentSelector != Codes.CheckoutSelector;
+  }
+
   CanCheckout(): boolean {
     return (this.core.DL.State.IsMemberLoaded && this.core.DL.State.AccessMode == AccessMode.Member);
+  }
+
+  public Checkout() {
+    this.core.DL.State.Cart.Toggle(false);
+    this.core.Load(Codes.CheckoutSelector);
   }
 
   ngOnInit() { }

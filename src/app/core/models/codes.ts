@@ -2,6 +2,7 @@ export const Codes = {
   Home: "Home",
   MenuSelector: "emm-menu",
   SellSelector: "emm-sell",
+  CheckoutSelector: "checkout",
   FoodTypeSelector: "food-type",
   FoodAdminTypeSelector: "food-admin-type-list",
 

@@ -24,6 +24,7 @@ import { SellItemComponent } from './components/sell-item/sell-item.component';
 import { SellComponent } from './components/sell/sell.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { SellCheckoutComponent } from './components/sell-checkout/sell-checkout.component';
 
 @NgModule({
   imports: [
@@ -40,9 +41,9 @@ import { NotificationComponent } from './components/notification/notification.co
   ],
   declarations: [ 
     EmmLibOutletComponent, ImageUploaderComponent, MenuComponent, RatingComponent, MenuItemComponent, 
-    SellItemComponent, SellComponent, CartComponent, NotificationComponent 
+    SellItemComponent, SellComponent, CartComponent, NotificationComponent, SellCheckoutComponent 
   ],
-  entryComponents: [ MenuComponent, SellComponent ]
+  entryComponents: [ MenuComponent, SellComponent, SellCheckoutComponent ]
 })
 export class EmmLibModule {
   static forRoot(): ModuleWithProviders {

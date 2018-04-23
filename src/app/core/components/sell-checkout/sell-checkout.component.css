@@ -1,0 +1,14 @@
+table {
+    padding: 10px;
+}
+
+tr {
+    height: 35px;
+}
+
+.total td {
+    font-weight: bold;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #2196f3;
+}

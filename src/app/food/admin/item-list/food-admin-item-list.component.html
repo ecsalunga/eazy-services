@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <ng-container *ngFor="let item of core.DL.State.FoodItems; let i = index;">
-      <tr class="{{i % 2 == 0 ? '' : 'alt' }}">
+      <tr class="{{i % 2 == 0 ? 'alt' : '' }}">
         <td>
           {{ item.SourceName }}
           <div>

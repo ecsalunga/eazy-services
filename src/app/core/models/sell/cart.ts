@@ -37,10 +37,6 @@ export class Cart {
             this.IsExpanded = isExpanded;
     }
 
-    public Checkout() {
-
-    }
-
     public Update(update: Update) {
         let sell = <SellItem>update.Data;
 
