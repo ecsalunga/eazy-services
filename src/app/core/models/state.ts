@@ -1,8 +1,8 @@
 import { FoodSource, FoodType, FoodItem } from './food';
 import { MenuItem, Menus } from './menu';
 import { SellItem, Cart } from './sell';
-import { AccessMode, UserItem } from './user';
-import { MemberItem } from './member';
+import { AccessMode } from './user';
+import { Account } from './account';
 import { Codes } from './codes';
 import { Update } from './update';
 
@@ -33,8 +33,7 @@ export class State {
     private _foodSource: FoodSource;
     private _foodType: FoodType;
 
-    private _user: UserItem;
-    private _member: MemberItem;
+    private _account: Account;
 
     constructor() {
         this.Title = Codes.Home;
@@ -75,19 +74,11 @@ export class State {
         this._foodItem = value;
     }
 
-    public get User(): UserItem {
-        return this._user;
+    public get Account(): Account {
+        return this._account;
     }
 
-    public set User(value: UserItem) {
-        this._user = value;
-    }
-
-    public get Member(): MemberItem {
-        return this._member;
-    }
-
-    public set Member(value: MemberItem) {
-        this._member = value;
+    public set Account(value: Account) {
+        this._account = value;
     }
 }

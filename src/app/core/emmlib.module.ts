@@ -9,7 +9,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { 
-  MatButtonModule, MatSnackBarModule, MatGridListModule, MatFormFieldModule, MatInputModule,
+  MatButtonModule, MatSnackBarModule, MatFormFieldModule, MatInputModule,
   MatIconModule, MatTooltipModule, MatProgressBarModule, MatSelectModule
 } from '@angular/material';
 
@@ -25,25 +25,27 @@ import { SellComponent } from './components/sell/sell.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { SellCheckoutComponent } from './components/sell-checkout/sell-checkout.component';
+import { AccountComponent } from './components/account/account.component';
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule, FormsModule, ReactiveFormsModule,
     AngularFireModule.initializeApp(DataSetting.firebase), AngularFireAuthModule, AngularFireDatabaseModule,
-    MatButtonModule, MatSnackBarModule, MatProgressBarModule, MatIconModule, MatTooltipModule
+    MatButtonModule, MatSnackBarModule, MatProgressBarModule, MatIconModule, MatTooltipModule,
+    MatInputModule, MatFormFieldModule
   ],
   exports: [
-    EmmLibOutletComponent, ImageUploaderComponent, RatingComponent, MenuItemComponent, SellItemComponent, NotificationComponent,
+    EmmLibOutletComponent, ImageUploaderComponent, RatingComponent, MenuItemComponent,
+    SellItemComponent, NotificationComponent, AccountComponent,
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
-    MatButtonModule, MatGridListModule, MatFormFieldModule, 
-    MatInputModule, MatIconModule, MatTooltipModule,
-    MatGridListModule, MatProgressBarModule, MatSelectModule
+    MatButtonModule, MatFormFieldModule, 
+    MatInputModule, MatIconModule, MatTooltipModule, MatProgressBarModule, MatSelectModule
   ],
   declarations: [ 
     EmmLibOutletComponent, ImageUploaderComponent, MenuComponent, RatingComponent, MenuItemComponent, 
-    SellItemComponent, SellComponent, CartComponent, NotificationComponent, SellCheckoutComponent 
+    SellItemComponent, SellComponent, CartComponent, NotificationComponent, SellCheckoutComponent, AccountComponent 
   ],
-  entryComponents: [ MenuComponent, SellComponent, SellCheckoutComponent ]
+  entryComponents: [ MenuComponent, SellComponent, SellCheckoutComponent, AccountComponent ]
 })
 export class EmmLibModule {
   static forRoot(): ModuleWithProviders {

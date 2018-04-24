@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
-import { EmmLibCoreService, UploadToken, FoodItem, Codes, DelayCall, RatingToken } from '../../../core';
+import { EmmLibCoreService, FoodItem, Codes, DelayCall, RatingToken } from '../../../core';
 
 @Component({
   selector: 'food-admin-item',

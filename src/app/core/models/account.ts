@@ -1,12 +1,11 @@
-import { Item } from '../item';
+import { Item } from './item';
 
-export class UserItem extends Item {
+export class Account extends Item {
     UID: string;
     Name: string;
     Email: string;
-    ImageURL: string;
-    Address1: string;
-    Address2: string;
+    ImageUrl: string;
+    Address: string;
     Contact1: string;
     Contact2: string;
     JoinDate: number;

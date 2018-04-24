@@ -1,8 +1,7 @@
 import { User } from '@firebase/auth-types';
 import { Observable, Subject } from 'rxjs/Rx';
 
-import { Setting, Update, Codes, UserItem, State, CommandItem } from '../models';
-import { MemberItem } from '../models/member';
+import { Setting, Update, Codes, OrderItem, Account, State, CommandItem } from '../models';
 import { ArticleItem } from '../models/article';
 import { FoodItem, FoodType, FoodSource } from '../models/food';
 
@@ -29,7 +28,8 @@ export class DataLayer {
     FoodSources: Array<FoodSource>;
     FoodTypes: Array<FoodType>;
     ArticleItems: Array<ArticleItem>;
-    MemberItems: Array<MemberItem>;
-    UserItems: Array<UserItem>;
+    OrderItems: Array<OrderItem>;
+    MemberItems: Array<Account>;
+    UserItems: Array<Account>;
     CommandItems: Array<CommandItem>;
 }

@@ -6,7 +6,7 @@ import * as firebase from 'firebase/app';
 import { MatSnackBar } from '@angular/material';
 
 import { LoadHelper, StampHelper, UtilityHelper } from './helpers';
-import { LoadRef, Codes, Update, AccessMode, MemberItem, CommandType, CommandItem } from './models';
+import { LoadRef, Codes, Update, AccessMode, CommandType, CommandItem, Menus } from './models';
 import { DelayCall } from './decorators';
 import { DataAccess, DataLayer, DataItems } from './data';
 import { Access, Command } from './account';
@@ -82,6 +82,13 @@ export class EmmLibCoreService {
 
     public LogOut() {
         this._access.LogOut();
+        this.Home();
+    }
+
+    public Home() {
+        this.DL.State.Title = Codes.Home;
+        this.DL.State.MenuItems = Menus[Codes.Home];
+        this.Load(Codes.MenuSelector);
     }
 
     public SelectImage() {

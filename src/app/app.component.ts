@@ -26,13 +26,11 @@ export class AppComponent implements OnInit {
   constructor(public core: EmmLibCoreService) { }
 
   public Home() {
-    this.core.DL.State.Title = Codes.Home;
-    this.core.DL.State.MenuItems = Menus[Codes.Home];
-    this.core.Load("emm-menu");
+    this.core.Home();
   }
 
   public BackToMenu() {
-    this.core.Load("emm-menu");
+    this.core.Load(Codes.MenuSelector);
   }
 
   public HasBackToMenu(): boolean {

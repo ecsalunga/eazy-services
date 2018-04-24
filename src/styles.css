@@ -165,6 +165,11 @@ custom class
     border: none;
 }
 
+.form-header {
+    font-size: 15px;
+    font-weight: bold;
+}
+
 @media (min-width: 550px) {
     .item-selection { margin-left: 4%; width: 44%; }
     .menu-img { height: 180px; }

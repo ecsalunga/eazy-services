@@ -3,7 +3,7 @@ import * as firebase from 'firebase/app';
 
 import { DataLayer, DataAccess } from '../data';
 import { StampHelper, UtilityHelper } from '../helpers';
-import { Codes, AccessMode, MemberItem, Update, UserItem } from '../models';
+import { Codes, AccessMode, Account, Update } from '../models';
 import { MergeMapToSubscriber } from 'rxjs/operators/mergeMapTo';
 
 export class Access {
@@ -57,19 +57,15 @@ export class Access {
             if (this._dl.State.IsUserLoaded && this._dl.UserItems.some(m => m.UID == this._dl.FBUser.uid)) {
                 this._dl.State.AccessMode = AccessMode.User;
 
-                let user = this._dl.UserItems.find(m => m.UID == this._dl.FBUser.uid);
-                user.ActionDate = this._stamp.Timestamp;
-                this._dl.State.User = user;
-
+                let user = this._dl.UserItems.find(u => u.UID == this._dl.FBUser.uid);
+                this.initAccess(user);
                 this._da.UserItems.Save(user);
             }
             else if (this._dl.State.IsMemberLoaded && this._dl.MemberItems.some(m => m.UID == this._dl.FBUser.uid)) {
                 this._dl.State.AccessMode = AccessMode.Member;
 
                 let member = this._dl.MemberItems.find(m => m.UID == this._dl.FBUser.uid);
-                member.ActionDate = this._stamp.Timestamp;
-                this._dl.State.Member = member;
-
+                this.initAccess(member);
                 this._da.MemberItems.Save(member);
             }
         }
@@ -78,16 +74,22 @@ export class Access {
             && this._dl.State.IsFBUserLoaded
             && this._dl.State.IsMemberLoaded
             && this._dl.State.IsUserLoaded) {
-            let member = new MemberItem();
+            let member = new Account();
             member.UID = this._dl.FBUser.uid;
             member.Name = this._dl.FBUser.displayName;
             member.Email = this._dl.FBUser.email;
-            member.ImageURL = Codes.DefaultPhoto;
+            member.ImageUrl = Codes.DefaultPhoto;
             member.Contact1 = this._dl.FBUser.phoneNumber;
             member.JoinDate = this._stamp.Timestamp;
             member.ActionDate = this._stamp.Timestamp;
             this._da.MemberItems.Save(member);
         }
+    }
+
+    private initAccess(item: Account) {
+        this._dl.State.PhotoUrl = item.ImageUrl;
+        item.ActionDate = this._stamp.Timestamp;
+        this._dl.State.Account = item;
     }
 
     private init() {
