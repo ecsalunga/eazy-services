@@ -11,7 +11,7 @@ import { FoodItem, FoodType, FoodSource } from '../models/food';
 export class DataAccess {
     public Setting: DataItem;
     public Articles: DataItems<ArticleItem>;
-    public Orders: DataItems<OrderItem>;
+    public OrderItems: DataItems<OrderItem>;
     public FoodItems: DataItems<FoodItem>;
     public FoodSources: DataItems<FoodSource>;
     public FoodTypes: DataItems<FoodType>;
@@ -32,8 +32,8 @@ export class DataAccess {
         this.FoodTypes = new DataItems<FoodType>(fireDB, dl, Codes.FoodTypes, "/food/types");
         this.FoodTypes.Load("Name");
 
-        this.Orders = new DataItems<OrderItem>(fireDB, dl, Codes.OrderItems, "/food/orders");
-        this.Orders.Load();
+        this.OrderItems = new DataItems<OrderItem>(fireDB, dl, Codes.OrderItems, "/order/items");
+        this.OrderItems.Load();
 
         this.MemberItems = new DataItems<Account>(fireDB, dl, Codes.MemberItems, "/member/items");
         this.MemberItems.Load("Name");

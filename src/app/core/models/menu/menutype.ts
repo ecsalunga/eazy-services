@@ -1,5 +1,5 @@
 export enum MenuType {
     System,
-    Module,
+    Component,
     Menu
 }

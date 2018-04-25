@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { EmmLibCoreService } from '../../emmlibcore.service';
-import { OrderItem } from '../../models';
+import { OrderItem, Codes, SellItem } from '../../models';
+import { ItemAction } from '../../models/itemaction';
 @Component({
   selector: 'checkout',
   templateUrl: './sell-checkout.component.html',
@@ -23,7 +24,15 @@ export class SellCheckoutComponent implements OnInit {
   }
 
   Confirm() {
-    
+    this.Model.Items = this.core.DL.State.Cart.Items;
+    this.Model.AddAction(new ItemAction(this.core.DL.State.Account.UID, Codes.New, this.core.Stamp.Timestamp));
+
+    this.core.DA.OrderItems.Save(this.Model);
+    this.core.DL.State.Cart.Clear();
+    this.core.Display("Order submitted.");
+
+    // [TODO] Create landing page to explain things, better to use the article module
+    this.core.Home();
   }
 
   ngOnInit() {

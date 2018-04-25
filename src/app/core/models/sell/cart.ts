@@ -37,6 +37,13 @@ export class Cart {
             this.IsExpanded = isExpanded;
     }
 
+    public Clear() {
+        this.Items = new Array<SellItem>();
+        this.Count = 0;
+        this.Total = 0;
+        this.storeCart();
+    }
+
     public Update(update: Update) {
         let sell = <SellItem>update.Data;
 

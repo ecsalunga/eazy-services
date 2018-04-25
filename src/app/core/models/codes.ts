@@ -27,5 +27,13 @@ export const Codes = {
 
   MaxRate: 5,
   DefaultImage: "/assets/default.jpg",
-  DefaultPhoto: "/assets/profile.png"
+  DefaultPhoto: "/assets/profile.png",
+
+  New: "New",
+  Created: "Created",
+  ReOpened: "ReOpened",
+  Updated: "Updated",
+  Assigned: "Assigned",
+  Cancelled: "Cancelled",
+  Done: "Done"
 };

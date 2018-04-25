@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
   Process(menu: MenuItem) {
     this.core.AnimateContent();
 
-    if(menu.Type == MenuType.Module)
+    if(menu.Type == MenuType.Component)
       this.core.Load(menu.Selector);
     else if(menu.Type == MenuType.Menu) {
       this.core.DL.State.MenuItems = Menus[ menu.Selector ];

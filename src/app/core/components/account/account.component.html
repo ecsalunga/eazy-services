@@ -15,7 +15,7 @@
     <mat-error *ngIf="ContactFC.invalid">{{ GetRequiredError(ContactFC) }}</mat-error>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Contact 2" [(ngModel)]="Model.Contact2">
+    <input matInput placeholder="Alternative Contact" [(ngModel)]="Model.Contact2">
   </mat-form-field>
   <div>
     <image-uploader [Token]="Token"></image-uploader>
