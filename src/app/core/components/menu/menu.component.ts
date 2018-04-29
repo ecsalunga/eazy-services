@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { EmmLibCoreService } from '../../emmlibcore.service';
-import { MenuItem, MenuType, Menus } from '../../models';
+import { MenuItem, MenuType, MenuGroup, MenuMode, Menus } from '../../models';
 
 @Component({
   selector: 'emm-menu',
@@ -10,18 +10,25 @@ import { MenuItem, MenuType, Menus } from '../../models';
 })
 export class MenuComponent implements OnInit {
   constructor(public core: EmmLibCoreService) { 
-    this.core.DL.State.Title = this.core.DL.State.Menu;
+    this.core.DL.State.Title = this.core.DL.State.MenuGroup.Title;
+  }
+
+  IsIcon(): boolean {
+    return this.core.DL.State.MenuGroup.Mode == MenuMode.Icon;
+  }
+
+  IsCard(): boolean {
+    return this.core.DL.State.MenuGroup.Mode == MenuMode.Card;
   }
 
   Process(menu: MenuItem) {
     this.core.AnimateContent();
-
+  
     if(menu.Type == MenuType.Component)
       this.core.Load(menu.Selector);
     else if(menu.Type == MenuType.Menu) {
-      this.core.DL.State.MenuItems = Menus[ menu.Selector ];
-      this.core.DL.State.Title = menu.Title;
-      this.core.DL.State.Menu = menu.Title;
+      this.core.DL.State.MenuGroup = Menus[ menu.Selector ];
+      this.core.DL.State.Title = this.core.DL.State.MenuGroup.Title;
     }
   }
 

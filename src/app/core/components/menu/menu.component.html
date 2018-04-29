@@ -1,5 +1,12 @@
 <div class="container">
-  <ng-container *ngFor="let item of core.DL.State.MenuItems">
-    <menu-item [Menu]="item" (OnClicked)="Process(item)"></menu-item>
+  <ng-container *ngIf="IsIcon()">
+      <ng-container *ngFor="let item of core.DL.State.MenuGroup.Items">
+        <menu-item-icon [Menu]="item" (OnClicked)="Process(item)"></menu-item-icon>
+      </ng-container>
+  </ng-container>
+  <ng-container *ngIf="IsCard()">
+    <ng-container *ngFor="let item of core.DL.State.MenuGroup.Items">
+      <menu-item [Menu]="item" (OnClicked)="Process(item)"></menu-item>
+    </ng-container>
   </ng-container>
 </div>

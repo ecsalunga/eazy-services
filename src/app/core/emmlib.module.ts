@@ -26,6 +26,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { SellCheckoutComponent } from './components/sell-checkout/sell-checkout.component';
 import { AccountComponent } from './components/account/account.component';
+import { MenuItemIconComponent } from './components/menu-item-icon/menu-item-icon.component';
 
 @NgModule({
   imports: [
@@ -36,14 +37,14 @@ import { AccountComponent } from './components/account/account.component';
   ],
   exports: [
     EmmLibOutletComponent, ImageUploaderComponent, RatingComponent, MenuItemComponent,
-    SellItemComponent, NotificationComponent, AccountComponent,
+    MenuItemIconComponent, SellItemComponent, NotificationComponent, AccountComponent,
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
     MatButtonModule, MatFormFieldModule, 
     MatInputModule, MatIconModule, MatTooltipModule, MatProgressBarModule, MatSelectModule
   ],
   declarations: [ 
     EmmLibOutletComponent, ImageUploaderComponent, MenuComponent, RatingComponent, MenuItemComponent, 
-    SellItemComponent, SellComponent, CartComponent, NotificationComponent, SellCheckoutComponent, AccountComponent 
+    SellItemComponent, SellComponent, CartComponent, NotificationComponent, SellCheckoutComponent, AccountComponent, MenuItemIconComponent 
   ],
   entryComponents: [ MenuComponent, SellComponent, SellCheckoutComponent, AccountComponent ]
 })

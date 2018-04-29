@@ -1,5 +1,5 @@
 import { FoodSource, FoodType, FoodItem } from './food';
-import { MenuItem, Menus } from './menu';
+import { MenuItem, MenuGroup, Menus } from './menu';
 import { SellItem, Cart } from './sell';
 import { AccessMode } from './user';
 import { Account } from './account';
@@ -12,8 +12,7 @@ export class State {
     ReturnSelector: string;
     CurrentSelector: string;
 
-    Menu: string;
-    MenuItems: Array<MenuItem>;
+    MenuGroup: MenuGroup;
 
     Sell: string;
     SellItems: Array<SellItem>;
@@ -37,9 +36,8 @@ export class State {
 
     constructor() {
         this.Title = Codes.Home;
-        this.Menu = Codes.Home;
         this.PhotoUrl = Codes.DefaultPhoto;
-        this.MenuItems = Menus[ Codes.Home ];
+        this.MenuGroup = Menus[ Codes.Home ];
         this.AccessMode = AccessMode.Guest;
         this.Cart = new Cart();
     }

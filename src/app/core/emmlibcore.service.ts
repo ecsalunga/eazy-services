@@ -87,7 +87,7 @@ export class EmmLibCoreService {
 
     public Home() {
         this.DL.State.Title = Codes.Home;
-        this.DL.State.MenuItems = Menus[Codes.Home];
+        this.DL.State.MenuGroup = Menus[Codes.Home];
         this.Load(Codes.MenuSelector);
     }
 
