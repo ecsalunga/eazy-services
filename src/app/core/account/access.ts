@@ -53,20 +53,20 @@ export class Access {
     }
 
     public MapFBUser() {
-        if (this._dl.State.AccessMode == AccessMode.Guest && this._dl.State.IsFBUserLoaded) {
+        if (this._dl.State.IsFBUserLoaded) {
             if (this._dl.State.IsUserLoaded && this._dl.UserItems.some(m => m.UID == this._dl.FBUser.uid)) {
                 this._dl.State.AccessMode = AccessMode.User;
 
                 let user = this._dl.UserItems.find(u => u.UID == this._dl.FBUser.uid);
-                this.initAccess(user);
-                this._da.UserItems.Save(user);
+                this.updateAccess(user);
+                this._da.UserItems.Save(user, false);
             }
             else if (this._dl.State.IsMemberLoaded && this._dl.MemberItems.some(m => m.UID == this._dl.FBUser.uid)) {
                 this._dl.State.AccessMode = AccessMode.Member;
 
                 let member = this._dl.MemberItems.find(m => m.UID == this._dl.FBUser.uid);
-                this.initAccess(member);
-                this._da.MemberItems.Save(member);
+                this.updateAccess(member);
+                this._da.MemberItems.Save(member, false);
             }
         }
 
@@ -86,7 +86,7 @@ export class Access {
         }
     }
 
-    private initAccess(item: Account) {
+    private updateAccess(item: Account) {
         this._dl.State.PhotoUrl = item.ImageUrl;
         item.ActionDate = this._stamp.Timestamp;
         this._dl.State.Account = item;
@@ -95,11 +95,11 @@ export class Access {
     private init() {
         this._dl.State.SessionCode = this._stamp.Timestamp;
         this._dl.Loaded.subscribe(update => {
-            if (update.Code == Codes.MemberItems && !this._dl.State.IsMemberLoaded) {
+            if (update.Code == Codes.MemberItems) {
                 this._dl.State.IsMemberLoaded = true;
                 this.MapFBUser();
             }
-            else if (update.Code == Codes.UserItems && !this._dl.State.IsUserLoaded) {
+            else if (update.Code == Codes.UserItems) {
                 this._dl.State.IsUserLoaded = true;
                 this.MapFBUser();
             }
